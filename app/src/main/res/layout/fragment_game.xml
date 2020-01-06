@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+   <android.support.constraint.ConstraintLayout
+       android:paddingBottom="60dp"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+
+      <com.youth.banner.Banner
+          android:layout_marginTop="10dp"
+          app:layout_constraintTop_toTopOf="parent"
+          app:layout_constraintLeft_toLeftOf="parent"
+          app:layout_constraintRight_toRightOf="parent"
+          android:layout_marginLeft="@dimen/margin_left_home"
+          android:layout_marginRight="@dimen/margin_right_home"
+          app:layout_constraintDimensionRatio="w, 1:2"
+          android:id="@+id/banner"
+          android:layout_width="0dp"
+          android:layout_height="0dp" />
+
+      <android.support.v7.widget.CardView
+          android:id="@+id/card_v"
+          android:layout_marginTop="10dp"
+          app:layout_constraintTop_toBottomOf="@+id/banner"
+          app:layout_constraintLeft_toLeftOf="@+id/banner"
+          app:layout_constraintRight_toRightOf="@+id/banner"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          app:cardBackgroundColor="@color/white"
+          app:cardCornerRadius="5dp"
+          app:cardElevation="1dp" >
+
+         <android.support.v7.widget.RecyclerView
+             android:id="@+id/re_label"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:layout_marginRight="10dp"
+             android:layout_marginBottom="10dp"
+             >
+
+         </android.support.v7.widget.RecyclerView>
+      </android.support.v7.widget.CardView>
+
+      <android.support.v7.widget.RecyclerView
+          android:id="@+id/re_content"
+          app:layout_constraintTop_toBottomOf="@+id/card_v"
+          app:layout_constraintLeft_toLeftOf="@+id/banner"
+          app:layout_constraintRight_toRightOf="@+id/banner"
+          app:layout_constraintBottom_toBottomOf="parent"
+          android:layout_width="0dp"
+          android:nestedScrollingEnabled="false"
+          android:layout_height="wrap_content"
+          >
+
+      </android.support.v7.widget.RecyclerView>
+   </android.support.constraint.ConstraintLayout>
+</ScrollView>

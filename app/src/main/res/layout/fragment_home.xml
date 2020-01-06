@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/f2"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView
+        android:id="@+id/com_margin"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin_title"
+        android:background="@color/white"
+        />
+   <android.support.design.widget.TabLayout
+       app:layout_constraintTop_toBottomOf="@id/com_margin"
+       app:layout_constraintLeft_toLeftOf="parent"
+       app:layout_constraintRight_toRightOf="parent"
+       android:id="@+id/tablayout"
+       android:layout_width="0dp"
+       android:layout_height="48dp"
+       android:background="@android:color/white"
+       app:tabGravity="fill"
+       app:tabIndicatorColor="@color/colorPrimary"
+       app:tabMode="fixed"
+       app:tabIndicatorFullWidth="false"
+       app:tabPaddingStart="10dp"
+       app:tabPaddingEnd="10dp"
+       app:tabSelectedTextColor="@color/colorPrimary"
+       app:tabTextAppearance="@style/TabLayoutTextLower"
+       app:tabTextColor="@color/gray" />
+
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
+        app:layout_constraintTop_toBottomOf="@+id/tablayout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+     />
+</android.support.constraint.ConstraintLayout>

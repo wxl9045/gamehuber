@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    >
+    
+    <ImageView
+        android:layout_marginTop="40dp"
+        android:layout_gravity="center"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/logo"
+        />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="30dp"
+        >
+   <EditText
+       android:layout_width="match_parent"
+       android:layout_height="44dp"
+       android:id="@+id/userEmail"
+       android:background="@null"
+       android:hint="@string/email"
+       android:textSize="@dimen/txt_size_norl"
+       android:gravity="center|right"
+       />
+        <View style="@style/gray_line"/>
+    <EditText
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:id="@+id/userPwd"
+        android:background="@null"
+        android:hint="@string/password"
+        android:textSize="@dimen/txt_size_norl"
+        android:gravity="center|right"
+        />
+        <View style="@style/gray_line"/>
+    <Button
+        android:layout_marginTop="50dp"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:id="@+id/btLogin"
+        android:background="@drawable/login_btn_bg"
+        android:layout_gravity="center"
+        android:textSize="@dimen/txt_size_norl"
+        android:textColor="@color/white"
+        android:text="@string/sign_in"
+        />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="30dp"
+        >
+    <View style="@style/gray_line"/>
+    <ImageView
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@mipmap/facebook_gray"
+        />
+    </LinearLayout>
+</LinearLayout>

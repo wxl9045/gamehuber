@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/f2"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+   <LinearLayout
+       android:padding="10dp"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:orientation="vertical"
+       >
+
+      <android.support.v7.widget.CardView
+          android:id="@+id/card_v_one"
+          android:layout_marginTop="10dp"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:background="@color/gray"
+          app:cardBackgroundColor="@color/white"
+          app:cardCornerRadius="5dp"
+          app:cardElevation="1dp" >
+         <LinearLayout
+             android:padding="10dp"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:orientation="vertical"
+             >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+               <TextView
+                   android:layout_marginLeft="5dp"
+                   style="@style/main_text"
+                   android:textColor="@color/gray"
+                   android:text=""
+                   />
+               <TextView
+                   android:layout_marginLeft="5dp"
+                   style="@style/main_text"
+                   android:textColor="@color/gray"
+                   android:layout_weight="1"
+                   android:text="@string/more"
+                   />
+               <TextView
+                   android:text="@string/followed_games"
+                   style="@style/main_text"
+                   android:textColor="@color/black"
+                   android:textSize="@dimen/txt_size_max"
+                   />
+            </LinearLayout>
+            <android.support.v7.widget.RecyclerView
+                android:layoutDirection="rtl"
+                android:id="@+id/re_label_one"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                >
+
+            </android.support.v7.widget.RecyclerView>
+         </LinearLayout>
+
+      </android.support.v7.widget.CardView>
+
+
+
+      <android.support.v7.widget.CardView
+          android:id="@+id/card_v_two"
+          android:layout_marginTop="10dp"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:background="@color/gray"
+          app:cardBackgroundColor="@color/white"
+          app:cardCornerRadius="5dp"
+          app:cardElevation="1dp" >
+         <LinearLayout
+             android:padding="10dp"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:orientation="vertical"
+             >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+               <TextView
+                   android:layout_marginLeft="5dp"
+                   style="@style/main_text"
+                   android:textColor="@color/gray"
+                   android:layout_weight="1"
+                   android:text="@string/more"
+                   />
+               <TextView
+                   android:text="@string/official_community"
+                   style="@style/main_text"
+                   android:textColor="@color/black"
+                   android:textSize="@dimen/txt_size_max"
+                   />
+            </LinearLayout>
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/re_label_two"
+                android:layoutDirection="rtl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                >
+
+            </android.support.v7.widget.RecyclerView>
+         </LinearLayout>
+
+      </android.support.v7.widget.CardView>
+
+
+      <android.support.v7.widget.CardView
+          android:id="@+id/card_v_three"
+          android:layout_marginTop="10dp"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:background="@color/gray"
+          app:cardBackgroundColor="@color/white"
+          app:cardCornerRadius="5dp"
+          app:cardElevation="1dp" >
+         <LinearLayout
+             android:padding="10dp"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:orientation="vertical"
+             >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+
+               <TextView
+                   android:layout_marginLeft="5dp"
+                   style="@style/main_text"
+                   android:textColor="@color/gray"
+                   android:layout_weight="1"
+                   android:text="@string/more"
+                   />
+               <TextView
+                   android:text="@string/hot_games"
+                   style="@style/main_text"
+                   android:textColor="@color/black"
+                   android:textSize="@dimen/txt_size_max"
+                   />
+            </LinearLayout>
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/re_label_three"
+                android:layoutDirection="rtl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                >
+
+            </android.support.v7.widget.RecyclerView>
+         </LinearLayout>
+
+      </android.support.v7.widget.CardView>
+   </LinearLayout>
+</ScrollView>

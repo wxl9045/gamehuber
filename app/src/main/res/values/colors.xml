@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#46BFA1</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="gray">#999999</color>
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="f2">#f2f2f2</color>
+
+    <color name="gray_line">#d2d2d2</color>
+    <color name="color_translucent">#00000000</color>
+    <!-- title 半透明背景颜色 -->
+    <color name="color_title_bg">#CCFFFFFF</color>
+
+    <color name="color_half_translucent">#7f000000</color>
+
+    <color name="color_light_black">#5000</color>
+</resources>

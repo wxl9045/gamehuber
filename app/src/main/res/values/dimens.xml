@@ -1,0 +1,20 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+
+
+    <dimen name="txt_size_min">12sp</dimen>
+    <dimen name="txt_size_norl">14sp</dimen>
+    <dimen name="txt_size_max">16sp</dimen>
+    <dimen name="txt_size_title">20sp</dimen>
+
+    <dimen name="title_height">54dp</dimen>
+    <dimen name="padding_tab_layout_bottom">60dp</dimen>
+    <dimen name="margin_left_home">20dp</dimen>
+    <dimen name="margin_right_home">20dp</dimen>
+
+    <dimen name="margin_title">48dp</dimen>
+    <dimen name="toolbar_height">48dp</dimen>
+    <dimen name="toolbar_height2">108dp</dimen>
+    <dimen name="subscription_head">280dp</dimen>
+
+</resources>
