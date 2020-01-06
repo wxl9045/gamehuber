@@ -1,26 +1,32 @@
 package safe.com.gamehuber.mvp.home
 
-import android.support.v7.widget.LinearLayoutManager
-import kotlinx.android.synthetic.main.fragment_rank.*
+import android.support.v4.app.Fragment
+import kotlinx.android.synthetic.main.fragment_home.*
 import safe.com.gamehuber.R
-import safe.com.gamehuber.R.id.re_rank
-import safe.com.gamehuber.adapter.RankAdapter
+import safe.com.gamehuber.mvp.base.impl.BaseFragmentAdapter
 import safe.com.gamehuber.mvp.base.impl.BaseMvpFragment
 
 class RankFragment : BaseMvpFragment<RankPresenter>(){
-    var rankAdapter :RankAdapter? = null
-    override fun getLayoutId(): Int = R.layout.fragment_rank
+    override fun getLayoutId(): Int = R.layout.fragment_home
+    private val fragments = ArrayList<Fragment>()
 
-    private val labels by  lazy {
+    private val tabList by  lazy {
         listOf(
-                "aaa","bbb","cccc","dddd","eeee","ffff"
+                "aaa",
+                "bbb",
+                "ccc",
+                "ddd"
         )
     }
+
     override fun initView() {
-        re_rank.apply {
-            layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
-            rankAdapter = RankAdapter(labels)
-            adapter = rankAdapter
+        for (element in tabList){
+            fragments.add(RankChildFragment())
+        }
+        viewpager.apply {
+            adapter = BaseFragmentAdapter(childFragmentManager, fragments, tabList)
+            tablayout.setupWithViewPager(this)
+//            TabLayoutHelper.setUpIndicatorWidth(tablayout)
         }
     }
 }
