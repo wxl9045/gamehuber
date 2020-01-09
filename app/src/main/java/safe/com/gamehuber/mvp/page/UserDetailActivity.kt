@@ -3,6 +3,7 @@ package safe.com.gamehuber.mvp.page
 import android.annotation.TargetApi
 import android.os.Build
 import android.support.design.widget.AppBarLayout
+import android.support.v4.app.Fragment
 import android.support.v4.view.ViewCompat
 import android.transition.Transition
 import android.util.Log
@@ -15,10 +16,11 @@ import kotlinx.android.synthetic.main.fragment_me.app_bar
 import kotlinx.android.synthetic.main.fragment_me.imageView
 import kotlinx.android.synthetic.main.fragment_me.iv_avatar
 import safe.com.gamehuber.R
-import safe.com.gamehuber.R.id.*
+import safe.com.gamehuber.mvp.base.impl.BaseFragmentAdapter
 import safe.com.gamehuber.mvp.base.impl.BaseMvpActivity
-import safe.com.gamehuber.mvp.home.VideoDetailActivity
-import safe.com.gamehuber.mvp.login.LoginPresenter
+import safe.com.gamehuber.mvp.page.fragment.FollowFragment
+import safe.com.gamehuber.mvp.page.fragment.RankChildFragment
+import safe.com.gamehuber.mvp.presenter.LoginPresenter
 
 
 class UserDetailActivity : BaseMvpActivity<LoginPresenter>(){
@@ -30,8 +32,11 @@ class UserDetailActivity : BaseMvpActivity<LoginPresenter>(){
     override fun getLayoutId(): Int = R.layout.activity_user_detail
     override fun isImmersionBarImage(): Boolean = true
     private var transition: Transition? = null
+    private val tabList = ArrayList<String>()
+    private val fragments = ArrayList<Fragment>()
     //http://img.kaiyanapp.com/ff0f6d0ad5f4b6211a3f746aaaffd916.jpeg?imageMogr2/quality/60/format/jpg
     override fun initView() {
+        initPageView()
         Glide.with(this)
                 .load(R.mipmap.bg_one)
                 .into(imageView)
@@ -63,7 +68,7 @@ class UserDetailActivity : BaseMvpActivity<LoginPresenter>(){
                 mSubScribeScaleX = distanceSubscribeX / (initHeight - toolbarHeight)
             }
             val scale = 1.0f - -verticalOffset/(initHeight - toolbarHeight+450)
-            val hiddenScale = 1.0f - -verticalOffset/(initHeight - toolbarHeight -180)
+            val hiddenScale = 1.0f - -verticalOffset/(initHeight - toolbarHeight -250)
             Log.d("aaa","initHeight === "+ initHeight)
             Log.d("aaa","toolbarHeight === "+ toolbarHeight)
             iv_avatar.translationY = 0.36f * verticalOffset
@@ -114,4 +119,17 @@ class UserDetailActivity : BaseMvpActivity<LoginPresenter>(){
         })
     }
 
+    private fun initPageView(){
+        tabList.add("Details")
+        tabList.add("Community")
+        tabList.add("Posts")
+        fragments.add(RankChildFragment())
+        fragments.add(RankChildFragment())
+        fragments.add(FollowFragment())
+        viewpager.apply {
+            adapter = BaseFragmentAdapter(supportFragmentManager, fragments, tabList)
+            tablayout.setupWithViewPager(this)
+//            TabLayoutHelper.setUpIndicatorWidth(tablayout)
+        }
+    }
 }

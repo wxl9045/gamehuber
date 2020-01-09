@@ -15,7 +15,7 @@ open class BaseModel {
                 MyResult.Success(response.data)
             } else {
                 errorBlock?.let { it() }
-                MyResult.Error(IOException(response.errorMsg))
+                MyResult.Error(IOException(response.msg))
             }
         }
     }

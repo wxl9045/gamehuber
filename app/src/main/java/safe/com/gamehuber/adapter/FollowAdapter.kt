@@ -11,7 +11,7 @@ import com.chad.library.adapter.base.BaseViewHolder
 import safe.com.gamehuber.Constants
 import safe.com.gamehuber.R
 import safe.com.gamehuber.common.ui.SDCardInfoView
-import safe.com.gamehuber.mvp.home.VideoDetailActivity
+import safe.com.gamehuber.mvp.page.VideoDetailActivity
 import safe.com.gamehuber.mvp.model.bean.HomeBean
 
 

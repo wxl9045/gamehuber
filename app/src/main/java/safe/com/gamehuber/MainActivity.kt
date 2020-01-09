@@ -4,12 +4,11 @@ import android.support.v4.app.FragmentTransaction
 import com.ashokvarma.bottomnavigation.BottomNavigationBar
 import com.ashokvarma.bottomnavigation.BottomNavigationItem
 import kotlinx.android.synthetic.main.activity_main.*
-import safe.com.gamehuber.R.id.bottom_bar
 import safe.com.gamehuber.mvp.base.impl.BaseActivity
-import safe.com.gamehuber.mvp.home.ForumFragment
-import safe.com.gamehuber.mvp.home.HomeFragment
-import safe.com.gamehuber.mvp.home.MeFragment
-import safe.com.gamehuber.mvp.home.RankFragment
+import safe.com.gamehuber.mvp.page.fragment.ForumFragment
+import safe.com.gamehuber.mvp.page.fragment.HomeFragment
+import safe.com.gamehuber.mvp.page.fragment.MeFragment
+import safe.com.gamehuber.mvp.page.fragment.RankFragment
 
 
 class MainActivity : BaseActivity(),BottomNavigationBar.OnTabSelectedListener{
@@ -49,7 +48,7 @@ class MainActivity : BaseActivity(),BottomNavigationBar.OnTabSelectedListener{
             0 -> {
                 meFragment?.let {
                     transaction.show(it).commit()
-                }?:MeFragment()?.let {
+                }?: MeFragment()?.let {
                     meFragment = it
                     transaction.add(R.id.fl,it).commit()
                 }

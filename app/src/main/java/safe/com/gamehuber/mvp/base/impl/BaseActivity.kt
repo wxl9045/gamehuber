@@ -1,5 +1,6 @@
 package safe.com.gamehuber.mvp.base.impl
 
+import android.app.Dialog
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
@@ -10,10 +11,11 @@ import com.jakewharton.rxbinding2.view.RxView
 import safe.com.gamehuber.R
 import safe.com.gamehuber.common.ext.otherwise
 import safe.com.gamehuber.common.ext.yes
+import safe.com.gamehuber.common.ui.DialogUtils
 import java.util.concurrent.TimeUnit
 
 abstract class BaseActivity : AppCompatActivity(),View.OnClickListener {
-
+    private var dialog: Dialog? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE)
@@ -93,5 +95,12 @@ abstract class BaseActivity : AppCompatActivity(),View.OnClickListener {
 
    override fun onDestroy() {
         super.onDestroy()
+    }
+
+    fun showDialog(message: String) {
+        dialog = DialogUtils.createLoadingDialog(this,message)
+    }
+    fun missDialog() {
+        DialogUtils.closeDialog(dialog)
     }
 }

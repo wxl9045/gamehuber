@@ -5,7 +5,7 @@ import android.os.Bundle
 import safe.com.gamehuber.mvp.base.IMvpView
 import safe.com.gamehuber.mvp.base.IPresenter
 
-abstract class BasePresenter<out V: IMvpView<BasePresenter<V>>>: IPresenter<V> {
+abstract class BasePresenter<out V : IMvpView<BasePresenter<V>>> : IPresenter<V> {
 
     override lateinit var view: @UnsafeVariance V
 

@@ -7,9 +7,14 @@ import android.support.v4.app.ActivityCompat
 import android.support.v4.app.ActivityOptionsCompat
 import android.support.v4.util.Pair
 import android.view.View
+import com.google.gson.Gson
+import okhttp3.MediaType
+import okhttp3.RequestBody
 import safe.com.gamehuber.R
-import safe.com.gamehuber.mvp.home.VideoDetailActivity
+import safe.com.gamehuber.common.ext.yes
+import safe.com.gamehuber.mvp.page.VideoDetailActivity
 import java.util.*
+import java.util.regex.Pattern
 
 /**
  * 随机颜色
@@ -45,4 +50,30 @@ fun anim2Act(activity : Activity,view : View,intent : Intent){
         activity.startActivity(intent)
         activity.overridePendingTransition(R.anim.anim_in, R.anim.anim_out)
     }
+}
+
+
+/**
+ * 判断邮箱是否合法
+ * @param email
+ * @return
+ */
+fun isEmail(email : String) : Boolean {
+    (null== email || "" === email).yes { return false }
+    var p  = Pattern.compile("\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*")
+    var m = p.matcher(email)
+    return m.matches()
+}
+
+/**
+ * map 转 RequestBody
+ *
+ * @param mp
+ * @return
+ */
+fun getRequestBody(mp: Map<String, Any>): RequestBody {
+    val gson = Gson()
+    //        JSONObject jsonObject = new JSONObject(mp);
+    val bodyContent = gson.toJson(mp)
+    return RequestBody.create(MediaType.parse("application/json; charset=utf-8"), bodyContent)
 }

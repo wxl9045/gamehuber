@@ -13,18 +13,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name="safe.com.gamehuber.MainActivity"/>
-        <activity android:name="safe.com.gamehuber.MainActivity2"/>
-        <activity android:name="safe.com.gamehuber.mvp.login.LoginActivity">
+        <activity android:name="safe.com.gamehuber.mvp.page.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="safe.com.gamehuber.mvp.login.ResetPasswordActivity"/>
-        <activity android:name="safe.com.gamehuber.mvp.login.CreateAccountActivity"/>
-        <activity android:name="safe.com.gamehuber.mvp.home.VideoDetailActivity"/>
+        <activity android:name="safe.com.gamehuber.mvp.page.ResetPasswordActivity"/>
+        <activity android:name="safe.com.gamehuber.mvp.page.CreateAccountActivity"/>
+        <activity android:name="safe.com.gamehuber.mvp.page.VideoDetailActivity"/>
         <activity android:name="safe.com.gamehuber.mvp.page.UserDetailActivity"/>
-        <activity android:name="safe.com.gamehuber.mvp.page.UserDetail2Activity"/>
     </application>
 
 </manifest>

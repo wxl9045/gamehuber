@@ -33,6 +33,26 @@ val retrofit by lazy {
                     .addInterceptor(logInterceptor)
                     .build()
             )
+            .baseUrl(UrlConstant.BASE_URL2)
+            .build()
+}
+
+val myRetrofit by lazy {
+    val logInterceptor = HttpLoggingInterceptor { Log.d("interceptor",it) }
+    logInterceptor.level = HttpLoggingInterceptor.Level.BODY
+    Retrofit.Builder()
+            .addConverterFactory(GsonConverterFactory.create())
+            .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+//            .addCallAdapterFactory(CoroutineCallAdapterFactory.invoke())
+            .client(OkHttpClient.Builder()
+                    .addInterceptor(addQueryParameterInterceptor())  //参数添加
+                    .connectTimeout(60, TimeUnit.SECONDS)
+                    .readTimeout(60, TimeUnit.SECONDS)
+                    .writeTimeout(60, TimeUnit.SECONDS)
+                    .addInterceptor(BaseInterceptor())
+                    .addInterceptor(logInterceptor)
+                    .build()
+            )
             .baseUrl(UrlConstant.BASE_URL)
             .build()
 }
