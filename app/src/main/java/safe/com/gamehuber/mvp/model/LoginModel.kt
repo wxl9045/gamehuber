@@ -14,7 +14,7 @@ class LoginModel : BaseModel() {
     suspend fun login(userEmail: String, password: String): MyResult<Any> {
         return apiCall(call = {
             var map = mapOf("email" to userEmail,"password" to password)
-            executeResponse(LoginService.sendMail(getRequestBody(map)))
+            executeResponse(LoginService.login(getRequestBody(map)))
         }, errorMessage = "网络异常")
     }
     /**
@@ -35,6 +35,17 @@ class LoginModel : BaseModel() {
             var map = mapOf("email" to userEmail,
                     "password" to password, "verifyCode" to verifyCode)
             executeResponse(LoginService.register(getRequestBody(map)))
+        }, errorMessage = "网络异常")
+    }
+
+    /**
+     * 重置 密码
+     */
+    suspend fun reset(userEmail: String, password: String, verifyCode: String): MyResult<Any> {
+        return apiCall(call = {
+            var map = mapOf("email" to userEmail,
+                    "password" to password, "verifyCode" to verifyCode)
+            executeResponse(LoginService.reset(getRequestBody(map)))
         }, errorMessage = "网络异常")
     }
 }

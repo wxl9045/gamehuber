@@ -25,16 +25,7 @@ class SDCardInfoView @JvmOverloads constructor(context: Context, attrs: Attribut
     var avatarUrl : String? = null//用户头像
     val defAvatar = R.mipmap.default_avatar
     var myAdapter : MulitImageAdapter? = null
-    private val homeGameBeans by  lazy {
-        listOf(
-                HomeGameBean(1,"http://140.143.151.190:890/api/fileupload/fileupload/file/downFile?fileId=432953237700874240"),
-                HomeGameBean(2,"http://140.143.151.190:890/api/fileupload/fileupload/file/downFile?fileId=432953238132887552"),
-                HomeGameBean(2,"http://140.143.151.190:890/api/fileupload/fileupload/file/downFile?fileId=432953238850113536"),
-                HomeGameBean(1,"http://140.143.151.190:890/api/fileupload/fileupload/file/downFile?fileId=432953239256961024"),
-                HomeGameBean(2,"http://140.143.151.190:890/api/fileupload/fileupload/file/downFile?fileId=432953239827386368"),
-                HomeGameBean(2,"http://140.143.151.190:890/api/fileupload/fileupload/file/downFile?fileId=432953241127620608")
-        )
-    }
+    private val homeGameBeans: ArrayList<HomeGameBean>  = ArrayList()
     enum class CardModel{
         SINGLE_IMAGE,MULTI_IMAGE,VIDEO,TEXT
     }

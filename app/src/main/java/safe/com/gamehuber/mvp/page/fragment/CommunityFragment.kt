@@ -12,16 +12,7 @@ import safe.com.gamehuber.mvp.model.bean.HomeGameBean
 class CommunityFragment : BaseMvpFragment<RankPresenter>(){
     override fun getLayoutId(): Int = R.layout.fragment_community
     private var myAdapter : CommunityAdapter? = null
-    private val homeGameBeans by  lazy {
-        listOf(
-                HomeGameBean(1,"绝地求生好好好玩，玩完大家啊基调为奇偶"),
-                HomeGameBean(2,"绝地求生好好好玩，玩完大家啊基调为奇偶"),
-                HomeGameBean(2,"绝地求生好好好玩，玩完大家啊基调为奇偶"),
-                HomeGameBean(1,"绝地求生好好好玩，玩完大家啊基调为奇偶"),
-                HomeGameBean(2,"绝地求生好好好玩，玩完大家啊基调为奇偶"),
-                HomeGameBean(2,"绝地求生好好好玩，玩完大家啊基调为奇偶")
-        )
-    }
+    private val homeGameBeans: ArrayList<HomeGameBean> = ArrayList()
     override fun initView() {
         initCommunityAdapter()
     }

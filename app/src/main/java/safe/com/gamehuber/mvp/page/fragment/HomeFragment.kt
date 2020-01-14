@@ -3,11 +3,10 @@ package safe.com.gamehuber.mvp.page.fragment
 import android.support.v4.app.Fragment
 import kotlinx.android.synthetic.main.fragment_home.*
 import safe.com.gamehuber.R
+import safe.com.gamehuber.mvp.base.impl.BaseFragment
 import safe.com.gamehuber.mvp.base.impl.BaseFragmentAdapter
-import safe.com.gamehuber.mvp.base.impl.BaseMvpFragment
-import safe.com.gamehuber.mvp.presenter.HomePresenter
 
-class HomeFragment : BaseMvpFragment<HomePresenter>(){
+class HomeFragment : BaseFragment(){
     override fun getLayoutId(): Int = R.layout.fragment_home
 
     private val tabList = ArrayList<String>()

@@ -20,20 +20,40 @@
         style="@style/main_text_b"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf = "@id/img_game"
         android:layout_marginRight="10dp"
         android:layout_marginTop="10dp"
-        android:text="绝地求生"
+        android:layout_marginBottom="10dp"
+        android:text=""
+        android:maxEms="18"
+        android:singleLine="true"
+        android:ellipsize="end"
         android:textColor="@color/black"
         />
+        <TextView
+            android:id="@+id/tv_game_big_tltle"
+            style="@style/main_text_b"
+            android:textSize="@dimen/txt_size_title"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/img_game"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:text=""
+            android:maxEms="15"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:textColor="@color/black"
+            />
     <ImageView
         android:adjustViewBounds="true"
         android:scaleType="fitXY"
-        android:layout_marginTop="5dp"
         android:id="@+id/img_game"
         app:layout_constraintTop_toBottomOf="@+id/tv_game_tltle"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintDimensionRatio="h, 1:0.5"
         android:src="@mipmap/b2"
@@ -48,11 +68,11 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/img_game"
         >
+
         <ImageView
             android:id="@+id/img_icon"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@mipmap/b2"
             />
     </android.support.v7.widget.CardView>
     <TextView
@@ -60,7 +80,8 @@
         android:id="@+id/tv_game_content_title"
         android:layout_marginRight="5dp"
         style="@style/main_text_b"
-        android:text="绝地求生"
+        android:textSize="@dimen/txt_size_title"
+        android:text=""
         app:layout_constraintRight_toLeftOf="@+id/card_icon"
         app:layout_constraintTop_toBottomOf="@+id/img_game"
         />
@@ -70,13 +91,15 @@
         android:layout_marginRight="5dp"
         style="@style/main_text"
         android:textColor="@color/gray"
-        android:text="绝地求生绝地求生绝地求生绝地求生绝地求生绝地求生"
-        android:maxEms="10"
+        android:text=""
+        android:maxEms="20"
+        android:maxLength="50"
         app:layout_constraintRight_toRightOf="@+id/tv_game_content_title"
         app:layout_constraintTop_toBottomOf="@+id/tv_game_content_title"
         android:gravity="right"
         />
     <ImageView
+        android:visibility="gone"
         android:id="@+id/img_collect"
         android:layout_width="15dp"
         android:layout_height="15dp"
@@ -87,6 +110,7 @@
         android:background="@mipmap/icon_heart"
         />
     <TextView
+        android:visibility="gone"
         app:layout_constraintLeft_toRightOf="@+id/img_collect"
         style="@style/main_text"
         app:layout_constraintBottom_toBottomOf="@+id/img_collect"
@@ -95,6 +119,7 @@
         android:textColor="@color/gray"
         />
     <TextView
+        android:visibility="gone"
         style="@style/main_text"
         android:textColor="@color/gray"
         android:textSize="@dimen/txt_size_min"

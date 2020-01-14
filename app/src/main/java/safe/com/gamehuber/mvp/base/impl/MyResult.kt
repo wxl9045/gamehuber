@@ -6,10 +6,11 @@ sealed class MyResult<out T : Any> {
 
     data class Error(val exception: Exception) : MyResult<Nothing>()
 
-    override fun toString(): String {
+    fun getString(): String {
         return when (this) {
-            is Success<*> -> "Success[data=$data]"
-            is Error -> "Error[exception=$exception]"
+            is Success<*> -> "[data=$data]"
+            is Error -> "${exception.message}"
         }
     }
+
 }

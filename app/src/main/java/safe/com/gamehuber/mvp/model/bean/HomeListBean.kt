@@ -1,6 +1,6 @@
 package safe.com.gamehuber.mvp.model.bean
 
-data class HomeGameBean(
+data class HomeListBean(
         val cover: String,
         val coverOrigin: String,
         val desc: String,
@@ -9,6 +9,5 @@ data class HomeGameBean(
         val name: String,
         val rate: String,
         val ratePersons: String,
-        val type: Int,
-        val title: String
+        val type: String
 )

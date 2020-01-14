@@ -8,43 +8,56 @@ import kotlinx.android.synthetic.main.fragment_game.*
 import safe.com.gamehuber.R
 import safe.com.gamehuber.adapter.GameLabelAdapter
 import safe.com.gamehuber.adapter.HomeGameAdapter
+import safe.com.gamehuber.common.ext.otherwise
+import safe.com.gamehuber.common.ext.yes
 import safe.com.gamehuber.common.utils.GlideImageLoader
-import safe.com.gamehuber.mvp.base.impl.BaseFragment
+import safe.com.gamehuber.mvp.base.impl.BaseMvpFragment
+import safe.com.gamehuber.mvp.model.bean.HomeBannerBean
 import safe.com.gamehuber.mvp.model.bean.HomeGameBean
+import safe.com.gamehuber.mvp.presenter.GamePresenter
+import safe.com.gamehuber.net.UrlConstant.BASE_URL_FILE
 
 
-class GameFragment : BaseFragment(){
-    private val images by  lazy {
+class GameFragment : BaseMvpFragment<GamePresenter>() {
+    private var page = 1
+    private var images: ArrayList<String> = ArrayList()
+    private var isRefresh = false
+    private val labels by lazy {
         listOf(
-                R.mipmap.b1,R.mipmap.b2,R.mipmap.b3
+                "aaa", "bbb", "cccc", "dddd", "eeee", "ffff"
         )
     }
-    private val labels by  lazy {
-        listOf(
-               "aaa","bbb","cccc","dddd","eeee","ffff"
-        )
-    }
-    private val homeGameBeans by  lazy {
-        listOf(
-                HomeGameBean(1,"绝地求生好好好玩，玩完大家啊基调为奇偶"),
-                HomeGameBean(2,"绝地求生好好好玩，玩完大家啊基调为奇偶")
-        )
-    }
-    private var labelAdapter : GameLabelAdapter? = null
-    private var homeGameAdapter : HomeGameAdapter? = null
+    private var homeGameBeans: ArrayList<HomeGameBean> = ArrayList()
+    private var labelAdapter: GameLabelAdapter? = null
+    private var homeGameAdapter: HomeGameAdapter? = null
 
     override fun getLayoutId(): Int = R.layout.fragment_game
 
     override fun initView() {
-        //轮播图
-        initBanner()
+        //刷新 加载
+        initRefresh()
         //首页标签
         initLabelAdapter()
         //首页游戏列表
         initGameAdapter()
     }
 
-    private fun initLabelAdapter(){
+    private fun initRefresh() {
+        mRefreshLayout.setOnRefreshListener {
+            isRefresh = true
+            page = 1
+            presenter.getHomeList(page)
+        }
+        //设置下拉刷新主题颜色
+        mRefreshLayout.setPrimaryColorsId(R.color.color_translucent, R.color.color_title_bg)
+        mRefreshLayout.setOnLoadmoreListener {
+            isRefresh = false
+            page++
+            presenter.getHomeList(page)
+        }
+    }
+
+    private fun initLabelAdapter() {
         re_label.apply {
             layoutManager = GridLayoutManager(activity, 2)
             labelAdapter = GameLabelAdapter(labels)
@@ -54,21 +67,43 @@ class GameFragment : BaseFragment(){
 
     private fun initGameAdapter() {
         re_content.apply {
-            layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL,false)
+            layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
             homeGameAdapter = HomeGameAdapter(homeGameBeans)
             adapter = homeGameAdapter
         }
     }
 
-    private fun initBanner(){
+    override fun initData() {
+        presenter.getBanners()
+        presenter.getHomeList(page)
+    }
+
+    fun setBanners(homeBannerBeans: List<HomeBannerBean>) {
+        for (bean in homeBannerBeans) {
+            images?.add(BASE_URL_FILE + bean.imageUrl)
+        }
         banner.apply {
             setBannerStyle(BannerConfig.CIRCLE_INDICATOR)
             setImageLoader(GlideImageLoader())
             setImages(images)
             setBannerAnimation(Transformer.DepthPage)
-            setDelayTime(1500)//设置轮播时间
+            setDelayTime(2500)//设置轮播时间
             isAutoPlay(true) //设置自动轮播，默认为true
             start()
+        }
+    }
+
+    fun setHomeList(homeGameBeans: List<HomeGameBean>) {
+        isRefresh.yes { this.homeGameBeans.clear() }
+        this.homeGameBeans.addAll(homeGameBeans)
+        homeGameAdapter?.notifyDataSetChanged()
+    }
+
+    fun missRefresh() {
+        isRefresh.yes {
+            mRefreshLayout.finishRefresh()
+        }.otherwise {
+            mRefreshLayout.finishLoadmore()
         }
     }
 }

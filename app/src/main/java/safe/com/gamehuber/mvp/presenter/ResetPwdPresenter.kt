@@ -12,19 +12,19 @@ import safe.com.gamehuber.common.utils.isEmail
 import safe.com.gamehuber.mvp.base.impl.BasePresenter
 import safe.com.gamehuber.mvp.base.impl.MyResult
 import safe.com.gamehuber.mvp.model.LoginModel
-import safe.com.gamehuber.mvp.page.CreateAccountActivity
+import safe.com.gamehuber.mvp.page.ResetPasswordActivity
 
-class RegisterPresenter : BasePresenter<CreateAccountActivity>() {
+class ResetPwdPresenter : BasePresenter<ResetPasswordActivity>() {
 
-    fun doRegister(userEmail: String, pwd: String, verifyCode: String) {
+    fun doReset(userEmail: String, pwd: String, verifyCode: String) {
         view.showDialog("提交中")
         GlobalScope.launch(Dispatchers.Main) {
-            val result = LoginModel().register(userEmail, pwd, verifyCode)
+            val result = LoginModel().reset(userEmail, pwd, verifyCode)
             (result is MyResult.Success).yes {
                 view.finish()
-                view.toast("注册成功")
+                view.toast("密码修改成功")
             }.otherwise {
-                view.toast(result.toString())
+                view.toast(result.getString())
             }
             view.missDialog()
         }
@@ -35,6 +35,8 @@ class RegisterPresenter : BasePresenter<CreateAccountActivity>() {
             val result = LoginModel().sendEmail(userEmail)
             (result is MyResult.Success).yes {
                 view.toast("邮件已发送")
+            }.otherwise {
+                view.toast(result.getString())
             }
         }
     }

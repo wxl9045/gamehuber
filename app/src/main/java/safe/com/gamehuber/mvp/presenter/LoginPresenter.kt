@@ -8,6 +8,7 @@ import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
 import safe.com.gamehuber.MainActivity
 import safe.com.gamehuber.common.ext.no
+import safe.com.gamehuber.common.ext.otherwise
 import safe.com.gamehuber.common.ext.yes
 import safe.com.gamehuber.common.utils.isEmail
 import safe.com.gamehuber.mvp.base.impl.BasePresenter
@@ -36,7 +37,7 @@ class LoginPresenter : BasePresenter<LoginActivity>(){
             (result is MyResult.Success).yes {
                 view.toast("登录成功")
                 view.startActivity<MainActivity>()
-            }
+            }.otherwise {  view.toast(result.getString()) }
             view.missDialog()
         }
     }

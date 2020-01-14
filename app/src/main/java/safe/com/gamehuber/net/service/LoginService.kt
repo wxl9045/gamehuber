@@ -25,6 +25,12 @@ interface LoginApi{
      */
     @POST("v1/User/register")
     suspend fun register(@Body body: RequestBody): BaseBean<Any>
+
+    /**
+     * 重置密码
+     */
+    @POST("v1/User/reset")
+    suspend fun reset(@Body body: RequestBody): BaseBean<Any>
 }
 
 object LoginService: LoginApi by myRetrofit.create(LoginApi::class.java)

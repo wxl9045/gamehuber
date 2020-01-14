@@ -16,7 +16,7 @@ class MulitImageAdapter(beans: List<HomeGameBean>):
     override fun convert(helper: BaseViewHolder, bean : HomeGameBean) {
         val imPhoto = helper.getView<ImageView>(R.id.im_photo)
         Glide.with(mContext)
-                .load(bean.content)
+                .load(R.mipmap.bg_one)
                 .apply(RequestOptions().placeholder(R.mipmap.placeholder_banner))
                 .transition(DrawableTransitionOptions().crossFade())
                 .into(imPhoto)
