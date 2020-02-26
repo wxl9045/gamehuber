@@ -14,6 +14,7 @@ import kotlinx.android.synthetic.main.common_card_info.view.*
 import safe.com.gamehuber.R
 import safe.com.gamehuber.adapter.MulitImageAdapter
 import safe.com.gamehuber.mvp.model.bean.HomeGameBean
+import safe.com.gamehuber.net.UrlConstant
 
 /**
  * 公共卡片详情样式
@@ -23,6 +24,7 @@ class SDCardInfoView @JvmOverloads constructor(context: Context, attrs: Attribut
     var coverImgUrl : String? = null //视频界面 图片
     var desc : String? = null//描述
     var avatarUrl : String? = null//用户头像
+    var nickName: String? = null//昵称
     val defAvatar = R.mipmap.default_avatar
     var myAdapter : MulitImageAdapter? = null
     private val homeGameBeans: ArrayList<HomeGameBean>  = ArrayList()
@@ -70,14 +72,15 @@ class SDCardInfoView @JvmOverloads constructor(context: Context, attrs: Attribut
                 re_image.visibility = View.GONE
             }
         }
+        user_name.text = nickName
         Glide.with(context)
-                .load(coverImgUrl)
+                .load(UrlConstant.BASE_URL_FILE + coverImgUrl)
                 .apply(RequestOptions().placeholder(R.mipmap.placeholder_banner))
                 .transition(DrawableTransitionOptions().crossFade())
                 .into(imageView)
         tv_describe.text = desc
         Glide.with(context)
-                .load(avatarUrl)
+                .load(UrlConstant.BASE_URL_FILE + avatarUrl)
                 .apply(RequestOptions().placeholder(R.mipmap.default_avatar).circleCrop())
                 .transition(DrawableTransitionOptions().crossFade())
                 .into(iv_avatar)

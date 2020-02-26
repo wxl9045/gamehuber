@@ -2,6 +2,7 @@ package safe.com.gamehuber.mvp.page.fragment
 
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
 import com.youth.banner.BannerConfig
 import com.youth.banner.Transformer
 import kotlinx.android.synthetic.main.fragment_game.*
@@ -12,9 +13,11 @@ import safe.com.gamehuber.common.ext.otherwise
 import safe.com.gamehuber.common.ext.yes
 import safe.com.gamehuber.common.utils.GlideImageLoader
 import safe.com.gamehuber.mvp.base.impl.BaseMvpFragment
+import safe.com.gamehuber.mvp.model.bean.GameBean
 import safe.com.gamehuber.mvp.model.bean.HomeBannerBean
 import safe.com.gamehuber.mvp.model.bean.HomeGameBean
 import safe.com.gamehuber.mvp.presenter.GamePresenter
+import safe.com.gamehuber.net.UrlConstant
 import safe.com.gamehuber.net.UrlConstant.BASE_URL_FILE
 
 
@@ -75,6 +78,8 @@ class GameFragment : BaseMvpFragment<GamePresenter>() {
 
     override fun initData() {
         presenter.getBanners()
+        presenter.getPremiereGame()
+        presenter.getAdvertising()
         presenter.getHomeList(page)
     }
 
@@ -98,6 +103,31 @@ class GameFragment : BaseMvpFragment<GamePresenter>() {
         this.homeGameBeans.addAll(homeGameBeans)
         homeGameAdapter?.notifyDataSetChanged()
     }
+
+    fun setPremiereGame(gameBean: GameBean){
+        Glide.with(this)
+                .load(UrlConstant.BASE_URL_FILE + gameBean.coverOrigin)
+                .into(img_premiere_game)
+        Glide.with(this)
+                .load(UrlConstant.BASE_URL_FILE + gameBean.icon)
+                .into(premiere_game_icon)
+        premiere_game_content.text = gameBean.desc
+        premiere_game_title.text = gameBean.name
+    }
+
+    fun setAdvertising(gameBean: GameBean){
+        Glide.with(this)
+                .load(UrlConstant.BASE_URL_FILE + gameBean.coverOrigin)
+                .into(img_game)
+        Glide.with(this)
+                .load(UrlConstant.BASE_URL_FILE + gameBean.icon)
+                .into(img_icon)
+        tv_game_content_title.text= gameBean.name
+        tv_game_content.text =  gameBean.desc
+//        premiere_game_content.text = gameBean.desc
+//        premiere_game_title.text = gameBean.name
+    }
+
 
     fun missRefresh() {
         isRefresh.yes {

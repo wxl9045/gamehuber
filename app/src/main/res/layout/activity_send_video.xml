@@ -1,0 +1,77 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/bt_commit"
+            android:padding="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="发布"
+            android:textColor="@color/white"
+            android:background="@drawable/login_small_btn_bg"
+            android:textSize="@dimen/sp_16" />
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:id="@+id/close"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@mipmap/close" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/im_video"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+    <EditText
+        android:gravity="center_vertical|end"
+        android:layoutDirection="rtl"
+        android:id="@+id/edTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@null"
+        android:hint="请填写标题"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/gray"
+        android:textSize="@dimen/sp_16" />
+
+    <TextView
+        android:id="@+id/v1"
+        style="@style/gray_line"
+        android:layout_width="match_parent"></TextView>
+
+    <EditText
+        android:gravity="center_vertical|end"
+        android:layoutDirection="rtl"
+        android:id="@+id/edContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@null"
+        android:hint="请填写内容"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/gray"
+        android:textSize="@dimen/sp_16" />
+
+</LinearLayout>

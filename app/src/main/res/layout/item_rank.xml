@@ -1,99 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView xmlns:tools="http://schemas.android.com/tools"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="100dp"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginTop="10dp"
+    android:paddingBottom="10dp"
     app:cardBackgroundColor="@color/white"
     app:cardCornerRadius="5dp"
-    app:cardElevation="1dp"
-    android:paddingBottom="10dp"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    app:cardElevation="1dp">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    <TextView
-        android:id="@+id/rank_num"
-        android:layout_marginRight="10dp"
-        style="@style/main_text_b"
-        android:text="1"
-        android:textColor="@color/gray"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        />
-        <android.support.v7.widget.CardView
+
+        <TextView
+            android:id="@+id/rank_num"
+            style="@style/main_text_b"
             android:layout_marginRight="10dp"
-            android:id="@+id/card_icon"
+            android:text="1"
+            android:textColor="@color/gray"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/im_icon"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            app:cardCornerRadius="10dp"
-            app:cardElevation="1dp"
-            app:layout_constraintRight_toLeftOf="@id/rank_num"
-            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginRight="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            >
-            <ImageView
-                android:id="@+id/im_photo"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@mipmap/b2"
-                />
-        </android.support.v7.widget.CardView>
+            app:layout_constraintRight_toLeftOf="@id/rank_num"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
             android:id="@+id/rank_name"
-            android:layout_marginRight="10dp"
             style="@style/main_text"
+            android:layout_marginRight="10dp"
             android:text="Name"
             android:textColor="@color/black"
-            app:layout_constraintTop_toTopOf="@+id/card_icon"
-            app:layout_constraintRight_toLeftOf="@+id/card_icon"
-            />
+            app:layout_constraintRight_toLeftOf="@+id/im_icon"
+            app:layout_constraintTop_toTopOf="@+id/im_icon" />
+
         <TextView
-            android:layout_marginTop="5dp"
             android:id="@+id/rank_app_size"
-            android:layout_marginRight="10dp"
             style="@style/main_text"
-            android:textSize="@dimen/txt_size_min"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
             android:text="40M"
             android:textColor="@color/black"
-            app:layout_constraintTop_toBottomOf="@+id/rank_name"
-            app:layout_constraintRight_toLeftOf="@+id/card_icon"
-            />
+            android:textSize="@dimen/txt_size_min"
+            app:layout_constraintRight_toLeftOf="@+id/im_icon"
+            app:layout_constraintTop_toBottomOf="@+id/rank_name" />
+
         <TextView
             android:id="@+id/rank_app_download"
-            android:layout_marginRight="5dp"
             style="@style/main_text"
-            android:textSize="@dimen/txt_size_min"
+            android:layout_marginRight="5dp"
             android:text="17k+download"
             android:textColor="@color/black"
-            app:layout_constraintTop_toTopOf="@+id/rank_app_size"
-            app:layout_constraintRight_toLeftOf="@+id/rank_app_size"
-            />
-        <TextView
-            android:layout_marginTop="5dp"
-            android:id="@+id/rank_app_desc"
-            android:layout_marginRight="5dp"
-            style="@style/main_text"
             android:textSize="@dimen/txt_size_min"
+            app:layout_constraintRight_toLeftOf="@+id/rank_app_size"
+            app:layout_constraintTop_toTopOf="@+id/rank_app_size" />
+
+        <TextView
+            android:id="@+id/rank_app_desc"
+            style="@style/main_text"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="5dp"
             android:text="here is a sentence intr"
             android:textColor="@color/black"
-            app:layout_constraintTop_toBottomOf="@+id/rank_app_size"
-            app:layout_constraintRight_toLeftOf="@+id/card_icon"
-            />
-    <TextView
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="10dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_width="80dp"
-        android:layout_height="30dp"
-        android:background="@drawable/code_btn_bg"
-        android:textSize="@dimen/txt_size_norl"
-        android:textColor="@color/black"
-        android:gravity="center"
-        android:text="GET"
-        />
+            android:textSize="@dimen/txt_size_min"
+            app:layout_constraintRight_toLeftOf="@+id/im_icon"
+            app:layout_constraintTop_toBottomOf="@+id/rank_app_size" />
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/code_btn_bg"
+            android:gravity="center"
+            android:text="GET"
+            android:textColor="@color/black"
+            android:textSize="@dimen/txt_size_norl"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </android.support.constraint.ConstraintLayout>
 </android.support.v7.widget.CardView>

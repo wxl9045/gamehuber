@@ -14,7 +14,9 @@ class GamePresenter : BasePresenter<GameFragment>() {
 
     fun getBanners() {
         GlobalScope.launch(Dispatchers.Main) {
-            val result = withContext(Dispatchers.IO) { HomeModel().getBanners() }
+            val result = withContext(Dispatchers.IO) {
+                HomeModel().getBanners()
+            }
             if (result is MyResult.Success) {
                 view.setBanners(result.data)
             }
@@ -28,6 +30,24 @@ class GamePresenter : BasePresenter<GameFragment>() {
                 view.setHomeList(result.data.records)
             }
             view.missRefresh()
+        }
+    }
+
+    fun getPremiereGame() {
+        GlobalScope.launch(Dispatchers.Main) {
+            val result = HomeModel().getPremiereGame()
+            if (result is MyResult.Success) {
+                view.setPremiereGame(result.data)
+            }
+        }
+    }
+
+    fun getAdvertising() {
+        GlobalScope.launch(Dispatchers.Main) {
+            val result = HomeModel().getAdvertising()
+            if (result is MyResult.Success) {
+                view.setAdvertising(result.data)
+            }
         }
     }
 }

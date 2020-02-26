@@ -12,5 +12,4 @@ sealed class MyResult<out T : Any> {
             is Error -> "${exception.message}"
         }
     }
-
 }

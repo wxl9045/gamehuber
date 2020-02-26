@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tl="http://schemas.android.com/tools"
+    android:background="@color/f2"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+   <android.support.design.widget.TabLayout
+       app:layout_constraintTop_toBottomOf="@id/com_margin"
+       app:layout_constraintLeft_toLeftOf="parent"
+       app:layout_constraintRight_toRightOf="parent"
+       android:id="@+id/tablayout"
+       android:layout_width="0dp"
+       android:layout_height="48dp"
+       android:background="@android:color/white"
+       app:tabGravity="fill"
+       app:tabMode="fixed"
+       app:tabIndicatorFullWidth="false"
+       app:tabPaddingStart="10dp"
+       app:tabPaddingEnd="10dp"
+       app:tabSelectedTextColor="@color/colorPrimary"
+       app:tabTextAppearance="@style/TabLayoutTextLower"
+       app:tabRippleColor="@android:color/transparent"
+       app:tabTextColor="@color/gray" />
+    <!--<com.flyco.tablayout.SlidingTabLayout-->
+        <!--android:id="@+id/slid_tab"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="48dp"-->
+        <!--android:background="@color/black"-->
+        <!--android:paddingLeft="5dp"-->
+        <!--android:paddingRight="5dp"-->
+        <!--tl:tl_indicator_color="#393E46"-->
+        <!--tl:tl_indicator_corner_radius="5dp"-->
+        <!--tl:tl_indicator_margin_left="2dp"-->
+        <!--tl:tl_indicator_margin_right="2dp"-->
+        <!--tl:tl_indicator_style="BLOCK"/>-->
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
+        app:layout_constraintTop_toBottomOf="@+id/tablayout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+     />
+</android.support.constraint.ConstraintLayout>

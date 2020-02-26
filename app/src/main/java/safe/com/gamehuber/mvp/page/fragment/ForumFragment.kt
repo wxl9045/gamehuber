@@ -1,5 +1,6 @@
 package safe.com.gamehuber.mvp.page.fragment
 
+import android.content.Intent
 import android.support.v4.app.Fragment
 import kotlinx.android.synthetic.main.fragment_home.*
 import safe.com.gamehuber.R
@@ -24,5 +25,9 @@ class ForumFragment : BaseMvpFragment<RankPresenter>(){
             tablayout.setupWithViewPager(this)
 //            TabLayoutHelper.setUpIndicatorWidth(tablayout)
         }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
     }
 }

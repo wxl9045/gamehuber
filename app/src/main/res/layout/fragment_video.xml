@@ -22,9 +22,6 @@
           android:layout_width="match_parent"
           android:layout_height="wrap_content" />
 
-      <FrameLayout
-          android:layout_width="match_parent"
-          android:layout_height="match_parent">
 
          <android.support.v7.widget.RecyclerView
              android:id="@+id/mRecyclerView"
@@ -37,6 +34,11 @@
              >
 
          </android.support.v7.widget.RecyclerView>
-      </FrameLayout>
+
+      <com.scwang.smartrefresh.layout.footer.ClassicsFooter
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          app:srlClassicsSpinnerStyle="Translate" />
    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
 </android.support.constraint.ConstraintLayout>

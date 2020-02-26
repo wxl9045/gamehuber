@@ -9,36 +9,33 @@ import safe.com.gamehuber.Constants
 import safe.com.gamehuber.R
 import safe.com.gamehuber.common.ui.SDCardInfoView
 import safe.com.gamehuber.common.utils.anim2Act
-import safe.com.gamehuber.mvp.page.VideoDetailActivity
-import safe.com.gamehuber.mvp.model.bean.HomeBean
+import safe.com.gamehuber.mvp.model.bean.HomeVideoBean
 import safe.com.gamehuber.mvp.page.UserDetailActivity
+import safe.com.gamehuber.mvp.page.VideoDetailActivity
 
 
-class HomeVideoAdapter(beans: ArrayList<HomeBean.Issue.Item>):
-        BaseQuickAdapter<HomeBean.Issue.Item, BaseViewHolder>(R.layout.item_video,beans) {
-    private var imAdapter : MulitImageAdapter? = null
-    override fun convert(helper: BaseViewHolder, item : HomeBean.Issue.Item) {
-        val itemData = item.data
-        val cover = itemData?.cover?.feed
-        var avatar = itemData?.author?.icon
+class HomeVideoAdapter(beans: List<HomeVideoBean>) :
+        BaseQuickAdapter<HomeVideoBean, BaseViewHolder>(R.layout.item_video, beans) {
+    private var imAdapter: MulitImageAdapter? = null
+    override fun convert(helper: BaseViewHolder, bean: HomeVideoBean) {
 
-        // 作者出处为空，就显获取提供者的信息
-        if (avatar.isNullOrEmpty()) {
-            avatar = itemData?.provider?.icon
-        }
+        val cover = bean.videoCover
+        var avatar = bean.avatar
+
 
         var cardInfoView = helper.getView<SDCardInfoView>(R.id.sdCard)
 
         cardInfoView.apply {
             cardModel = SDCardInfoView.CardModel.VIDEO
             coverImgUrl = cover
-            desc = itemData?.title ?: ""
+            desc = bean.postContent
             avatarUrl = avatar
+            nickName = bean.nickname
             setCoverImgClickListener {
-                goToVideoPlayer(mContext as Activity, it,item)
+                goToVideoPlayer(mContext as Activity, it, bean)
             }
             setAvatarClickListener {
-                goToUserDetail(mContext as Activity, it,item)
+                goToUserDetail(mContext as Activity, it)
             }
             cardCreate()
         }
@@ -51,11 +48,11 @@ class HomeVideoAdapter(beans: ArrayList<HomeBean.Issue.Item>):
      * @param activity
      * @param view
      */
-    private fun goToVideoPlayer(activity: Activity, view: View, itemData: HomeBean.Issue.Item) {
+    private fun goToVideoPlayer(activity: Activity, view: View, itemData: HomeVideoBean) {
         val intent = Intent(activity, VideoDetailActivity::class.java)
         intent.putExtra(Constants.BUNDLE_VIDEO_DATA, itemData)
         intent.putExtra(VideoDetailActivity.TRANSITION, true)
-        anim2Act(activity,view,intent)
+        anim2Act(activity, view, intent)
     }
 
     /**
@@ -64,8 +61,8 @@ class HomeVideoAdapter(beans: ArrayList<HomeBean.Issue.Item>):
      * @param activity
      * @param view
      */
-    private fun goToUserDetail(activity: Activity, view: View, itemData: HomeBean.Issue.Item) {
+    private fun goToUserDetail(activity: Activity, view: View) {
         val intent = Intent(activity, UserDetailActivity::class.java)
-        anim2Act(activity,view,intent)
+        anim2Act(activity, view, intent)
     }
 }

@@ -1,6 +1,7 @@
 package safe.com.gamehuber.net
 
 import android.util.Log
+import com.imydao.jiangbei.sp.DelegatesSP
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.Request
@@ -9,13 +10,15 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
+import safe.com.gamehuber.AppContext
 import safe.com.gamehuber.common.utils.getMobileModel
+import safe.com.gamehuber.mvp.model.bean.LoginBean
 import java.util.concurrent.TimeUnit
 
 
 //通过一个 QueryParameter 让 CacheInterceptor 添加 no-cache
 const val FORCE_NETWORK = "forceNetwork"
-
+var loginBean : LoginBean? by DelegatesSP.userInfoSP(AppContext)
 
 val retrofit by lazy {
     val logInterceptor = HttpLoggingInterceptor { Log.d("interceptor",it) }
@@ -37,7 +40,7 @@ val retrofit by lazy {
             .build()
 }
 
-val myRetrofit by lazy {
+val mRetrofit by lazy {
     val logInterceptor = HttpLoggingInterceptor { Log.d("interceptor",it) }
     logInterceptor.level = HttpLoggingInterceptor.Level.BODY
     Retrofit.Builder()
@@ -45,7 +48,7 @@ val myRetrofit by lazy {
             .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
 //            .addCallAdapterFactory(CoroutineCallAdapterFactory.invoke())
             .client(OkHttpClient.Builder()
-                    .addInterceptor(addQueryParameterInterceptor())  //参数添加
+                    .addInterceptor(BaseInterceptor())  //参数添加
                     .connectTimeout(60, TimeUnit.SECONDS)
                     .readTimeout(60, TimeUnit.SECONDS)
                     .writeTimeout(60, TimeUnit.SECONDS)
@@ -67,6 +70,7 @@ val myRetrofit by lazy {
 //            .connectTimeout(DEFAULT_TIME_OUT, TimeUnit.MILLISECONDS)
 //            .build()
 //}
+
 
 /**
  * 设置公共参数
@@ -90,7 +94,7 @@ class BaseInterceptor: Interceptor {
         val original = chain.request()
         return chain.proceed(original.newBuilder()
                 .apply {
-                    header("token", "")
+//                    header("token", loginBean?.token)
                 }
                 .build())
     }

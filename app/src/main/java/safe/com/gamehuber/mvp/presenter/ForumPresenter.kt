@@ -3,9 +3,9 @@ package safe.com.gamehuber.mvp.home
 
 import org.jetbrains.anko.toast
 import safe.com.gamehuber.mvp.base.impl.BasePresenter
-import safe.com.gamehuber.mvp.page.fragment.RankFragment
+import safe.com.gamehuber.mvp.page.fragment.RankListFragment
 
-class ForumPresenter : BasePresenter<RankFragment>(){
+class ForumPresenter : BasePresenter<RankListFragment>(){
 
     fun doLogin(){
 //        launchHttpExt ({

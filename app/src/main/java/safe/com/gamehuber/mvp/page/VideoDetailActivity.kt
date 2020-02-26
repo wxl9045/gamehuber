@@ -4,12 +4,10 @@ import android.annotation.TargetApi
 import android.os.Build
 import android.support.v4.view.ViewCompat
 import android.transition.Transition
-import android.view.View
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.orhanobut.logger.Logger
 import com.scwang.smartrefresh.header.MaterialHeader
-import com.shuyu.gsyvideoplayer.listener.LockClickListener
 import com.shuyu.gsyvideoplayer.utils.OrientationUtils
 import com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer
 import com.shuyu.gsyvideoplayer.video.base.GSYVideoPlayer
@@ -19,7 +17,7 @@ import safe.com.gamehuber.Constants
 import safe.com.gamehuber.R
 import safe.com.gamehuber.common.ui.VideoListener
 import safe.com.gamehuber.mvp.base.impl.BaseMvpActivity
-import safe.com.gamehuber.mvp.model.bean.HomeBean
+import safe.com.gamehuber.mvp.model.bean.HomeVideoBean
 import safe.com.gamehuber.mvp.presenter.VideoDetailPresenter
 
 class VideoDetailActivity : BaseMvpActivity<VideoDetailPresenter>(){
@@ -29,7 +27,7 @@ class VideoDetailActivity : BaseMvpActivity<VideoDetailPresenter>(){
     }
 
     private var mMaterialHeader: MaterialHeader? = null
-    private lateinit var itemData: HomeBean.Issue.Item
+    private lateinit var itemData: HomeVideoBean
     private var orientationUtils: OrientationUtils? = null
     private var isPlay: Boolean = false
     private var isPause: Boolean = false
@@ -63,7 +61,7 @@ class VideoDetailActivity : BaseMvpActivity<VideoDetailPresenter>(){
      * 初始化数据
      */
     override fun initData() {
-        itemData = intent.getSerializableExtra(Constants.BUNDLE_VIDEO_DATA) as HomeBean.Issue.Item
+        itemData = intent.getSerializableExtra(Constants.BUNDLE_VIDEO_DATA) as HomeVideoBean
         isTransition = intent.getBooleanExtra(TRANSITION, false)
     }
 
@@ -82,7 +80,7 @@ class VideoDetailActivity : BaseMvpActivity<VideoDetailPresenter>(){
         val imageView = ImageView(this)
         imageView.scaleType = ImageView.ScaleType.CENTER_CROP
         Glide.with(this)
-                .load(itemData.data?.cover?.feed)
+                .load(itemData.videoCover)
                 .into(imageView)
         mVideoView.thumbImageView = imageView
 
@@ -127,12 +125,9 @@ class VideoDetailActivity : BaseMvpActivity<VideoDetailPresenter>(){
             mVideoView.startWindowFullscreen(this, true, true)
         }
         //锁屏事件
-        mVideoView.setLockClickListener(object : LockClickListener {
-            override fun onClick(view: View?, lock: Boolean) {
-                //配合下方的onConfigurationChanged
-                orientationUtils?.isEnable = !lock
-            }
-        })
+        mVideoView.setLockClickListener { view, lock ->
+            orientationUtils?.isEnable = !lock
+        }
     }
 
     private fun initTransition() {

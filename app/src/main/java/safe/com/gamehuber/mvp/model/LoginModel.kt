@@ -3,6 +3,7 @@ package safe.com.gamehuber.mvp.model
 import safe.com.gamehuber.common.utils.getRequestBody
 import safe.com.gamehuber.mvp.base.impl.BaseModel
 import safe.com.gamehuber.mvp.base.impl.MyResult
+import safe.com.gamehuber.mvp.model.bean.LoginBean
 import safe.com.gamehuber.net.service.LoginService
 
 
@@ -11,7 +12,7 @@ class LoginModel : BaseModel() {
     /**
      * 登录
      */
-    suspend fun login(userEmail: String, password: String): MyResult<Any> {
+    suspend fun login(userEmail: String, password: String): MyResult<LoginBean> {
         return apiCall(call = {
             var map = mapOf("email" to userEmail,"password" to password)
             executeResponse(LoginService.login(getRequestBody(map)))

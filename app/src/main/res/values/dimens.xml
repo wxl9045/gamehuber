@@ -5,7 +5,7 @@
     <dimen name="txt_size_min">12sp</dimen>
     <dimen name="txt_size_norl">14sp</dimen>
     <dimen name="txt_size_max">16sp</dimen>
-    <dimen name="txt_size_title">20sp</dimen>
+    <dimen name="txt_size_title">18sp</dimen>
 
     <dimen name="title_height">54dp</dimen>
     <dimen name="padding_tab_layout_bottom">60dp</dimen>

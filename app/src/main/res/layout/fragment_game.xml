@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -41,6 +40,190 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <android.support.v7.widget.CardView
+                    android:id="@+id/card_premiere_game"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="10dp"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="5dp"
+                    app:cardElevation="1dp"
+                    app:layout_constraintDimensionRatio="w, 1:1.3"
+                    app:layout_constraintLeft_toLeftOf="@+id/banner"
+                    app:layout_constraintRight_toRightOf="@+id/banner"
+                    app:layout_constraintTop_toBottomOf="@+id/banner">
+
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/img_premiere_game"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:scaleType="center"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:id="@+id/premiere_game_icon"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginBottom="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintRight_toRightOf="parent" />
+
+                        <TextView
+                            android:id="@+id/premiere_game_title"
+                            style="@style/main_text"
+                            android:layout_width="0dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:ellipsize="end"
+                            android:gravity="right"
+                            android:maxLines="1"
+                            android:textSize="@dimen/txt_size_title"
+                            app:layout_constraintBottom_toTopOf="@+id/premiere_game_content"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toLeftOf="@+id/premiere_game_icon" />
+
+                        <TextView
+                            android:id="@+id/premiere_game_content"
+                            style="@style/main_text"
+                            android:layout_width="0dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:ellipsize="end"
+                            android:gravity="right"
+                            android:maxLines="1"
+                            android:textColor="@color/text_gray"
+                            android:textSize="@dimen/txt_size_norl"
+                            app:layout_constraintBottom_toBottomOf="@+id/premiere_game_icon"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toLeftOf="@+id/premiere_game_icon" />
+
+                    </android.support.constraint.ConstraintLayout>
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/card_ad_game"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:paddingBottom="10dp"
+                    app:cardCornerRadius="5dp"
+                    app:cardElevation="1dp"
+                    app:layout_constraintLeft_toLeftOf="@+id/card_premiere_game"
+                    app:layout_constraintRight_toRightOf="@+id/card_premiere_game"
+                    app:layout_constraintTop_toBottomOf="@+id/card_premiere_game">
+
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="10dp">
+
+                        <TextView
+                            android:id="@+id/tv_ad_game_tltle"
+                            style="@style/main_text_b"
+                            android:layout_margin="10dp"
+                            android:ellipsize="end"
+                            android:maxLength="1"
+                            android:text=""
+                            android:textColor="@color/black"
+                            app:layout_constraintBottom_toTopOf="@id/img_game"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tv_game_big_tltle"
+                            style="@style/main_text_b"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:ellipsize="end"
+                            android:singleLine="true"
+                            android:text=""
+
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/txt_size_title"
+                            app:layout_constraintBottom_toTopOf="@id/img_game"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:id="@+id/img_game"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:adjustViewBounds="true"
+                            android:scaleType="fitXY"
+                            app:layout_constraintDimensionRatio="h, 1:0.5"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_game_tltle" />
+
+
+                        <ImageView
+                            android:id="@+id/img_icon"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/img_game" />
+
+                        <TextView
+                            android:layout_marginLeft="10dp"
+                            android:id="@+id/tv_ad"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/gray_box"
+                            android:text="AD"
+                            android:textColor="@color/white"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/tv_game_content_title"
+                            app:layout_constraintBottom_toBottomOf="@+id/tv_game_content_title"
+                           />
+                        <TextView
+                            android:id="@+id/tv_game_content_title"
+                            style="@style/main_text_b"
+                            android:layout_width="0dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="5dp"
+                            android:ellipsize="end"
+                            android:gravity="right"
+                            android:maxLines="1"
+                            android:text=""
+                            android:textSize="@dimen/txt_size_title"
+                            app:layout_constraintLeft_toLeftOf="@+id/tv_ad"
+                            app:layout_constraintRight_toLeftOf="@+id/img_icon"
+                            app:layout_constraintTop_toTopOf="@+id/img_icon" />
+
+                        <TextView
+                            android:id="@+id/tv_game_content"
+                            style="@style/main_text"
+                            android:layout_width="0dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginRight="5dp"
+                            android:gravity="right"
+                            android:text=""
+                            android:ellipsize="end"
+                            android:maxLines="2"
+                            android:textColor="@color/gray"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toLeftOf="@+id/img_icon"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_game_content_title" />
+
+                    </android.support.constraint.ConstraintLayout>
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
                     android:id="@+id/card_v"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -51,7 +234,7 @@
                     app:cardElevation="1dp"
                     app:layout_constraintLeft_toLeftOf="@+id/banner"
                     app:layout_constraintRight_toRightOf="@+id/banner"
-                    app:layout_constraintTop_toBottomOf="@+id/banner">
+                    app:layout_constraintTop_toBottomOf="@+id/card_ad_game">
 
                     <android.support.v7.widget.RecyclerView
                         android:id="@+id/re_label"
@@ -68,11 +251,11 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:nestedScrollingEnabled="false"
                     android:background="@color/f2"
+                    android:nestedScrollingEnabled="false"
                     app:layout_constraintLeft_toLeftOf="@+id/banner"
                     app:layout_constraintRight_toRightOf="@+id/banner"
-                    app:layout_constraintTop_toBottomOf="@+id/banner">
+                    app:layout_constraintTop_toBottomOf="@+id/card_ad_game">
 
                 </android.support.v7.widget.RecyclerView>
 

@@ -1,0 +1,78 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <TextView
+            android:padding="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="发布"
+            android:textColor="@color/white"
+            android:background="@drawable/login_small_btn_bg"
+            android:textSize="@dimen/sp_16" />
+
+        <ImageButton
+            android:layout_gravity="center"
+            android:id="@+id/btPic"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="10dp"
+            android:background="@mipmap/icon_rich_pic" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:id="@+id/close"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@mipmap/close" />
+    </LinearLayout>
+
+    <EditText
+
+        android:gravity="center_vertical|end"
+        android:layoutDirection="rtl"
+        android:id="@+id/edTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@null"
+        android:hint="请填写标题"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/gray"
+        android:textSize="@dimen/sp_16" />
+
+    <TextView
+        android:id="@+id/v1"
+        style="@style/gray_line"
+        android:layout_width="match_parent"></TextView>
+
+    <com.sendtion.xrichtext.RichTextEditor
+        android:layoutDirection="rtl"
+        android:gravity="right"
+        android:id="@+id/et_new_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:rt_editor_image_bottom="10"
+        app:rt_editor_image_height="500"
+        app:rt_editor_text_color="@color/gray"
+        app:rt_editor_text_init_hint="在这里输入内容"
+        app:rt_editor_text_line_space="6dp"
+        app:rt_editor_text_size="@dimen/sp_16" />
+
+</LinearLayout>

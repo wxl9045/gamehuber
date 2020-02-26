@@ -1,6 +1,7 @@
 package safe.com.gamehuber.adapter
 
 import android.widget.ImageView
+import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
@@ -15,24 +16,28 @@ class HomeGameAdapter(beans: List<HomeGameBean>) :
     override fun convert(helper: BaseViewHolder, bean: HomeGameBean) {
         val imageCoverOrigin = helper.getView<ImageView>(R.id.img_game)
         val imgIcon = helper.getView<ImageView>(R.id.img_icon)
+        val tvDesc = helper.getView<TextView>(R.id.tv_game_content)
         when (bean.type) {
             4 -> {//单游戏推荐
                 helper.setText(R.id.tv_game_tltle, bean.title)
                         .setGone(R.id.tv_game_big_tltle, false)
                         .setGone(R.id.card_icon, true)
                         .setText(R.id.tv_game_content_title, bean.name)
+                tvDesc.setEms(15)
             }
             5 -> {//多个游戏推荐/专辑/合集
                 helper.setGone(R.id.tv_game_tltle, true)
                         .setGone(R.id.card_icon, false)
                         .setGone(R.id.tv_game_content_title, false)
                         .setText(R.id.tv_game_big_tltle, bean.name)
+                tvDesc.setEms(20)
             }
             6 -> {//内部推荐
                 helper.setText(R.id.tv_game_content_title, bean.name)
                         .setGone(R.id.tv_game_big_tltle, false)
                         .setGone(R.id.card_icon, false)
                         .setGone(R.id.tv_game_tltle, false)
+                tvDesc.setEms(20)
             }
         }
         Glide.with(mContext)
