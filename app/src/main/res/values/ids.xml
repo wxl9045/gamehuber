@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <item name="fab_score" type="id" />
+    <item name="fab_video" type="id" />
+    <item name="fab_post" type="id" />
+</resources>
+

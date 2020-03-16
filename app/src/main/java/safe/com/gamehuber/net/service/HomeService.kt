@@ -52,6 +52,11 @@ interface HomeApi{
     suspend fun rankList(@Body body: RequestBody) : BaseBean<BaseRecordsBean<List<RankListBean>>>
 
 
+    /**
+     * 帖子列表
+     */
+    @POST("/v1/PostExt/list")
+    suspend fun postExtList(@Body body: RequestBody) : BaseBean<BaseRecordsBean<List<PostBean>>>
 }
 
 object HomeService: HomeApi by mRetrofit.create(HomeApi::class.java)

@@ -14,13 +14,13 @@
 
         <TextView
             android:id="@+id/bt_commit"
-            android:padding="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:background="@drawable/login_small_btn_bg"
+            android:padding="5dp"
             android:text="发布"
             android:textColor="@color/white"
-            android:background="@drawable/login_small_btn_bg"
             android:textSize="@dimen/sp_16" />
 
 
@@ -36,20 +36,34 @@
             android:background="@mipmap/close" />
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/im_video"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:scaleType="centerCrop"
+            android:id="@+id/im_video"
+            android:layout_width="match_parent"
+            android:layout_height="200dp" />
+
+        <ImageView
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_player"
+            />
+    </RelativeLayout>
+
     <EditText
-        android:gravity="center_vertical|end"
-        android:layoutDirection="rtl"
         android:id="@+id/edTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:background="@null"
+        android:gravity="center_vertical|end"
         android:hint="请填写标题"
+        android:layoutDirection="rtl"
         android:padding="10dp"
         android:textColor="@color/black"
         android:textColorHint="@color/gray"
@@ -61,14 +75,14 @@
         android:layout_width="match_parent"></TextView>
 
     <EditText
-        android:gravity="center_vertical|end"
-        android:layoutDirection="rtl"
         android:id="@+id/edContent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:background="@null"
+        android:gravity="center_vertical|end"
         android:hint="请填写内容"
+        android:layoutDirection="rtl"
         android:padding="10dp"
         android:textColor="@color/black"
         android:textColorHint="@color/gray"

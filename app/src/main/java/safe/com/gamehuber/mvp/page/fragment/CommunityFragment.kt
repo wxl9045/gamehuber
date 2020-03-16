@@ -4,6 +4,7 @@ import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_community.*
 import safe.com.gamehuber.R
+import safe.com.gamehuber.R.id.*
 import safe.com.gamehuber.adapter.CommunityAdapter
 import safe.com.gamehuber.mvp.base.impl.BaseMvpFragment
 import safe.com.gamehuber.mvp.home.RankPresenter

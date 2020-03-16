@@ -50,4 +50,11 @@ class HomeModel : BaseModel(){
             executeResponse(HomeService.rankList(getRequestBody(map)))
         },errorMessage = "网络异常")
     }
+
+    suspend fun postExtList(page: Int): MyResult<BaseRecordsBean<List<PostBean>>> {
+        val map = mapOf("pageNo" to page, "pageSize" to 10)
+        return apiCall(call = {
+            executeResponse(HomeService.postExtList(getRequestBody(map)))
+        },errorMessage = "网络异常")
+    }
 }

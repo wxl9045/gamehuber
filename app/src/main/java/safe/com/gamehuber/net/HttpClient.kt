@@ -94,7 +94,9 @@ class BaseInterceptor: Interceptor {
         val original = chain.request()
         return chain.proceed(original.newBuilder()
                 .apply {
-//                    header("token", loginBean?.token)
+                    loginBean?.token?.let {
+                        header("token", it)
+                    }
                 }
                 .build())
     }

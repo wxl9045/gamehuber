@@ -41,14 +41,23 @@
           app:srlClassicsSpinnerStyle="Translate" />
    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
 
-   <ImageButton
-       android:id="@+id/bt_editor"
-       android:layout_marginBottom="60dp"
-       android:layout_marginRight="20dp"
-       app:layout_constraintEnd_toEndOf="parent"
-       app:layout_constraintBottom_toBottomOf="parent"
-       android:layout_width="40dp"
-       android:layout_height="40dp"
-       android:background="@drawable/dialog_loading"
-       />
+   <!--<ImageButton-->
+       <!--android:id="@+id/bt_editor"-->
+       <!--android:layout_marginBottom="60dp"-->
+       <!--android:layout_marginRight="20dp"-->
+       <!--app:layout_constraintEnd_toEndOf="parent"-->
+       <!--app:layout_constraintBottom_toBottomOf="parent"-->
+       <!--android:layout_width="40dp"-->
+       <!--android:layout_height="40dp"-->
+       <!--android:background="@drawable/dialog_loading"-->
+       <!--/>-->
+   <!--<com.leinardi.android.speeddial.SpeedDialView-->
+       <!--android:id="@+id/speedDial"-->
+       <!--android:layout_width="wrap_content"-->
+       <!--android:layout_height="wrap_content"-->
+       <!--app:layout_constraintEnd_toEndOf="parent"-->
+       <!--app:layout_constraintBottom_toBottomOf="parent"-->
+       <!--android:layout_marginRight="20dp"-->
+       <!--android:layout_marginBottom="60dp"-->
+       <!--app:sdMainFabClosedSrc="@drawable/ic_add_white_24dp" />-->
 </android.support.constraint.ConstraintLayout>

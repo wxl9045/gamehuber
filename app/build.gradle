@@ -14,8 +14,8 @@ android {
 
     defaultConfig {
         applicationId "safe.com.gamehuber"
-        minSdkVersion 26
-        targetSdkVersion 27
+        minSdkVersion 19
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -118,4 +118,5 @@ dependencies {
 
     //Rx权限
     implementation 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.5@aar'
+//    implementation "com.leinardi.android:speed-dial:3.1.1"
 }

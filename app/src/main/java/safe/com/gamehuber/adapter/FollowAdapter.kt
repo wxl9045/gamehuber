@@ -11,29 +11,28 @@ import com.chad.library.adapter.base.BaseViewHolder
 import safe.com.gamehuber.Constants
 import safe.com.gamehuber.R
 import safe.com.gamehuber.common.ui.SDCardInfoView
-import safe.com.gamehuber.mvp.page.VideoDetailActivity
 import safe.com.gamehuber.mvp.model.bean.HomeBean
+import safe.com.gamehuber.mvp.model.bean.PostBean
+import safe.com.gamehuber.mvp.page.VideoDetailActivity
 
 
-class FollowAdapter(beans: ArrayList<HomeBean.Issue.Item>):
-        BaseQuickAdapter<HomeBean.Issue.Item, BaseViewHolder>(R.layout.item_video,beans) {
-    private var imAdapter : MulitImageAdapter? = null
-    override fun convert(helper: BaseViewHolder, item : HomeBean.Issue.Item) {
-        val itemData = item.data
-        val cover = itemData?.cover?.feed
-        var avatar = itemData?.author?.icon
+class FollowAdapter(beans: List<PostBean>) :
+        BaseQuickAdapter<PostBean, BaseViewHolder>(R.layout.item_video, beans) {
+    private var imAdapter: MulitImageAdapter? = null
+    override fun convert(helper: BaseViewHolder, item: PostBean) {
+        val cover = item?.thumbLink
+//        var avatar = itemData?.author?.icon
 
         // 作者出处为空，就显获取提供者的信息
-        if (avatar.isNullOrEmpty()) {
-            avatar = itemData?.provider?.icon
-        }
+//        if (avatar.isNullOrEmpty()) {
+//            avatar = itemData?.provider?.icon
+//        }
 
-      var myCardModel  =  when(helper.adapterPosition){
-            1 -> SDCardInfoView.CardModel.VIDEO
-            2,3 -> SDCardInfoView.CardModel.MULTI_IMAGE
-            4 -> SDCardInfoView.CardModel.SINGLE_IMAGE
-            5 -> SDCardInfoView.CardModel.MULTI_IMAGE
-            else -> SDCardInfoView.CardModel.VIDEO
+        var myCardModel = when (item.dictTypeId) {
+            "1" -> SDCardInfoView.CardModel.TEXT
+            "2" -> SDCardInfoView.CardModel.SINGLE_IMAGE
+            "3" -> SDCardInfoView.CardModel.VIDEO
+            else -> SDCardInfoView.CardModel.TEXT
         }
 
         var cardInfoView = helper.getView<SDCardInfoView>(R.id.sdCard)
@@ -41,10 +40,10 @@ class FollowAdapter(beans: ArrayList<HomeBean.Issue.Item>):
         cardInfoView.apply {
             cardModel = myCardModel
             coverImgUrl = cover
-            desc = itemData?.title ?: ""
-            avatarUrl = avatar
+            desc = item?.name ?: ""
+//            avatarUrl = avatar
             setCoverImgClickListener {
-                goToVideoPlayer(mContext as Activity, it,item)
+//                goToVideoPlayer(mContext as Activity, it, item)
             }
             cardCreate()
         }
