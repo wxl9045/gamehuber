@@ -2,6 +2,7 @@
 <android.support.constraint.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
@@ -60,4 +61,42 @@
        <!--android:layout_marginRight="20dp"-->
        <!--android:layout_marginBottom="60dp"-->
        <!--app:sdMainFabClosedSrc="@drawable/ic_add_white_24dp" />-->
+   <com.github.clans.fab.FloatingActionMenu
+       android:layout_marginBottom="60dp"
+       android:id="@+id/floatingAction"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:layout_alignParentBottom="true"
+       android:paddingRight="10dp"
+       android:paddingBottom="10dp"
+       android:paddingLeft="10dp"
+       fab:menu_labels_ellipsize="end"
+       fab:menu_labels_singleLine="true"
+       fab:menu_labels_position="right">
+
+      <com.github.clans.fab.FloatingActionButton
+          android:id="@+id/btScore"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:src="@mipmap/ic_edit"
+          fab:fab_size="mini"
+          fab:fab_label="Score" />
+
+      <com.github.clans.fab.FloatingActionButton
+          android:id="@+id/btVideo"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:src="@mipmap/ic_edit"
+          fab:fab_size="mini"
+          fab:fab_label="Video" />
+
+      <com.github.clans.fab.FloatingActionButton
+          android:id="@+id/btPost"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:src="@mipmap/ic_edit"
+          fab:fab_size="mini"
+          fab:fab_label="Post" />
+
+   </com.github.clans.fab.FloatingActionMenu>
 </android.support.constraint.ConstraintLayout>

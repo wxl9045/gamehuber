@@ -2,10 +2,12 @@ package safe.com.gamehuber.mvp.page.fragment
 
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
+import android.view.View
 import com.bumptech.glide.Glide
 import com.youth.banner.BannerConfig
 import com.youth.banner.Transformer
 import kotlinx.android.synthetic.main.fragment_game.*
+import org.jetbrains.anko.startActivity
 import safe.com.gamehuber.R
 import safe.com.gamehuber.adapter.GameLabelAdapter
 import safe.com.gamehuber.adapter.HomeGameAdapter
@@ -16,6 +18,7 @@ import safe.com.gamehuber.mvp.base.impl.BaseMvpFragment
 import safe.com.gamehuber.mvp.model.bean.GameBean
 import safe.com.gamehuber.mvp.model.bean.HomeBannerBean
 import safe.com.gamehuber.mvp.model.bean.HomeGameBean
+import safe.com.gamehuber.mvp.page.PostDetailActivity
 import safe.com.gamehuber.mvp.presenter.GamePresenter
 import safe.com.gamehuber.net.UrlConstant
 import safe.com.gamehuber.net.UrlConstant.BASE_URL_FILE
@@ -43,6 +46,13 @@ class GameFragment : BaseMvpFragment<GamePresenter>() {
         initLabelAdapter()
         //首页游戏列表
         initGameAdapter()
+        setMyClickListener(card_premiere_game)
+    }
+
+    override fun onMyClick(v: View?) {
+        when (v?.id) {
+            R.id.card_premiere_game ->  activity?.startActivity<PostDetailActivity>()
+        }
     }
 
     private fun initRefresh() {
@@ -82,6 +92,8 @@ class GameFragment : BaseMvpFragment<GamePresenter>() {
         presenter.getAdvertising()
         presenter.getHomeList(page)
     }
+
+
 
     fun setBanners(homeBannerBeans: List<HomeBannerBean>) {
         for (bean in homeBannerBeans) {

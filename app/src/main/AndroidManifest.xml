@@ -27,6 +27,10 @@
         <activity android:name="safe.com.gamehuber.mvp.page.UserDetailActivity"/>
         <activity android:name="safe.com.gamehuber.mvp.page.RichEditorActivity"/>
         <activity android:name="safe.com.gamehuber.mvp.page.SendVideoActivity"/>
+        <activity android:name="safe.com.gamehuber.mvp.page.SelectGameActivity"/>
+        <activity android:name="safe.com.gamehuber.mvp.page.PostTypeActivity"/>
+        <activity android:name="safe.com.gamehuber.mvp.page.GameDetailActivity"/>
+        <activity android:name="safe.com.gamehuber.mvp.page.PostDetailActivity"/>
     </application>
 
 </manifest>

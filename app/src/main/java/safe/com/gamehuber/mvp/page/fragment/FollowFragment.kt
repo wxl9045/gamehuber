@@ -14,7 +14,6 @@ import safe.com.gamehuber.ConstantsCode.Companion.REQUEST_VIDEO_CODE
 import safe.com.gamehuber.R
 import safe.com.gamehuber.adapter.FollowAdapter
 import safe.com.gamehuber.common.ext.yes
-import safe.com.gamehuber.common.ui.InvitationDialog
 import safe.com.gamehuber.mvp.base.impl.BaseMvpFragment
 import safe.com.gamehuber.mvp.model.bean.PostBean
 import safe.com.gamehuber.mvp.page.RichEditorActivity
@@ -29,6 +28,7 @@ class FollowFragment : BaseMvpFragment<FollowPresenter>() {
     override fun getLayoutId(): Int = R.layout.fragment_follow
     override fun initView() {
         initRefresh()
+        setMyClickListener(btScore,btPost,btVideo)
     }
 
     override fun initData() {
@@ -77,27 +77,33 @@ class FollowFragment : BaseMvpFragment<FollowPresenter>() {
     }
 
     override fun onMyClick(v: View?) {
-//        when (v?.id) {
-//            R.id.bt_editor -> selectInvitation()
-//        }
-    }
-
-    private fun selectInvitation() {
-        val invitationDialog = InvitationDialog(activity)
-        invitationDialog.show()
-        invitationDialog.setClicklistener(object : InvitationDialog.ClickListenerInterface {
-            override fun doImageText() {
-                //图文贴
-                activity?.startActivity<RichEditorActivity>()
-            }
-
-            override fun doVideo() {
+        when (v?.id) {
+            R.id.btScore -> {}
+            R.id.btVideo -> {
                 //视频贴
                 val intent = Intent(Intent.ACTION_PICK, android.provider.MediaStore.Video.Media.EXTERNAL_CONTENT_URI)
                 activity?.startActivityForResult(intent, REQUEST_VIDEO_CODE)
             }
-        })
+            R.id.btPost ->  activity?.startActivity<RichEditorActivity>()//图文贴
+        }
     }
+
+//    private fun selectInvitation() {
+//        val invitationDialog = InvitationDialog(activity)
+//        invitationDialog.show()
+//        invitationDialog.setClicklistener(object : InvitationDialog.ClickListenerInterface {
+//            override fun doImageText() {
+//                //图文贴
+//                activity?.startActivity<RichEditorActivity>()
+//            }
+//
+//            override fun doVideo() {
+//                //视频贴
+//                val intent = Intent(Intent.ACTION_PICK, android.provider.MediaStore.Video.Media.EXTERNAL_CONTENT_URI)
+//                activity?.startActivityForResult(intent, REQUEST_VIDEO_CODE)
+//            }
+//        })
+//    }
 
     fun missRefresh() {
         isRefresh.yes {
@@ -107,4 +113,6 @@ class FollowFragment : BaseMvpFragment<FollowPresenter>() {
             mRefreshLayout.finishLoadmore()
         }
     }
+
+
 }

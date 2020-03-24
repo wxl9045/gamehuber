@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:layout_marginTop="10dp"
+    android:paddingBottom="10dp"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="5dp"
+    app:cardElevation="1dp">
+
+    <android.support.constraint.ConstraintLayout
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <ImageView
+            android:id="@+id/im_icon"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginRight="10dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_game_name"
+            style="@style/main_text"
+            android:layout_marginRight="10dp"
+            android:text="Name"
+            android:textColor="@color/black"
+            app:layout_constraintRight_toLeftOf="@+id/im_icon"
+            app:layout_constraintTop_toTopOf="@+id/im_icon" />
+
+
+        <TextView
+            android:gravity="right"
+            android:id="@+id/tv_item_desc"
+            style="@style/main_text"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="5dp"
+            android:text="here is a sentence intr"
+            android:textColor="@color/black"
+            android:textSize="@dimen/txt_size_min"
+            android:maxEms="20"
+            app:layout_constraintRight_toLeftOf="@+id/im_icon"
+            app:layout_constraintTop_toBottomOf="@+id/tv_game_name" />
+
+
+    </android.support.constraint.ConstraintLayout>
+</android.support.v7.widget.CardView>

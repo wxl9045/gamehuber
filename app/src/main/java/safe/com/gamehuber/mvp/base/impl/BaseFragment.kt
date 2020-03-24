@@ -5,8 +5,6 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.jakewharton.rxbinding2.view.RxView
-import java.util.concurrent.TimeUnit
 
 abstract class BaseFragment : Fragment(),View.OnClickListener{
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,11 +41,7 @@ abstract class BaseFragment : Fragment(),View.OnClickListener{
      * 防止按钮重复点击
      */
     override fun onClick(v: View?) {
-        v?.let {
-            RxView.clicks(it).throttleFirst(1, TimeUnit.SECONDS).subscribe{
-                onMyClick(v)
-            }
-        }
+        onMyClick(v)
     }
 
     protected open fun init(savedInstanceState: Bundle?) {}

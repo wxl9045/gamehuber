@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+   <ImageView
+       android:layout_marginLeft="50dp"
+       android:layout_marginTop="10dp"
+       android:id="@+id/im_search"
+       android:layout_width="20dp"
+       android:layout_height="20dp"
+       app:layout_constraintTop_toTopOf="parent"
+       app:layout_constraintLeft_toLeftOf="parent"
+       android:src="@mipmap/ic_search"
+       />
+   <EditText
+       android:gravity="right"
+       android:id="@+id/edSearch"
+       android:layout_width="200dp"
+       android:layout_height="wrap_content"
+       android:layout_marginRight="10dp"
+       app:layout_constraintRight_toLeftOf="@+id/btBack"
+       app:layout_constraintTop_toTopOf="@+id/im_search"
+       app:layout_constraintLeft_toRightOf="@+id/im_search"
+       app:layout_constraintBottom_toBottomOf="@+id/im_search"
+       android:background="@null"
+       />
+   <ImageButton
+       android:id="@+id/btBack"
+       android:layout_marginRight="10dp"
+       app:layout_constraintRight_toRightOf="parent"
+       app:layout_constraintTop_toTopOf="@+id/edSearch"
+       android:background="@mipmap/icon_back"
+       android:layout_width="20dp"
+       android:layout_height="20dp"
+       />
+   <TextView
+       android:layout_marginTop="5dp"
+       style="@style/gray_line"
+       app:layout_constraintLeft_toLeftOf="@+id/im_search"
+       app:layout_constraintRight_toRightOf="@+id/edSearch"
+       app:layout_constraintTop_toBottomOf="@+id/edSearch"
+       />
+   <com.scwang.smartrefresh.layout.SmartRefreshLayout
+       android:layout_marginTop="15dp"
+       android:id="@+id/mRefreshLayout"
+       android:layout_width="0dp"
+       android:layout_height="0dp"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintTop_toBottomOf="@id/edSearch"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:srlAccentColor="@color/f2"
+       app:srlEnableHeaderTranslationContent="false"
+       app:srlEnableLoadmore="true"
+       app:srlPrimaryColor="@color/colorPrimary">
+      <com.scwang.smartrefresh.header.MaterialHeader
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content" />
+
+
+         <android.support.v7.widget.RecyclerView
+             android:id="@+id/mRecyclerView"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:layout_marginRight="@dimen/margin_right_home"
+             android:layout_marginLeft="@dimen/margin_right_home"
+             android:clipToPadding="false"
+             android:paddingBottom="@dimen/padding_tab_layout_bottom"
+             >
+
+         </android.support.v7.widget.RecyclerView>
+
+      <com.scwang.smartrefresh.layout.footer.ClassicsFooter
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          app:srlClassicsSpinnerStyle="Translate" />
+   </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+</android.support.constraint.ConstraintLayout>

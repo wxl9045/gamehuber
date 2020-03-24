@@ -15,8 +15,7 @@ import kotlinx.android.synthetic.main.activity_video_detail.*
 import org.jetbrains.anko.toast
 import safe.com.gamehuber.Constants
 import safe.com.gamehuber.R
-import safe.com.gamehuber.R.id.mRefreshLayout
-import safe.com.gamehuber.R.id.mVideoView
+
 import safe.com.gamehuber.common.ui.VideoListener
 import safe.com.gamehuber.mvp.base.impl.BaseMvpActivity
 import safe.com.gamehuber.mvp.model.bean.HomeVideoBean
