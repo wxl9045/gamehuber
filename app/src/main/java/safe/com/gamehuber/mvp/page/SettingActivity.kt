@@ -30,13 +30,6 @@ class SettingActivity : BaseMvpActivity<PostDetailPresenter>() {
 
     override fun onMyClick(v: View?) {
         when (v?.id) {
-            R.id.btSend -> {
-//                var map = mapOf<String,String>(
-//                        ""
-//                )
-//                presenter.sendPost()
-            }
-            R.id.btBack -> finish()
         }
     }
 
