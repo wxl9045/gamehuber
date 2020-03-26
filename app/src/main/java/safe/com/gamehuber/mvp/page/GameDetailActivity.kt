@@ -19,6 +19,8 @@ import safe.com.gamehuber.mvp.page.fragment.RankChildFragment
 import safe.com.gamehuber.mvp.presenter.LoginPresenter
 
 
+
+
 class GameDetailActivity : BaseMvpActivity<LoginPresenter>() {
 
     override fun getLayoutId(): Int = R.layout.activity_game_detail

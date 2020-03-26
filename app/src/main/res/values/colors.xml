@@ -7,6 +7,7 @@
     <color name="gray">#999999</color>
     <color name="text_gray">#666666</color>
     <color name="white">#ffffff</color>
+    <color name="common_white">#fffeff</color>
     <color name="black">#000000</color>
     <color name="f2">#f2f2f2</color>
 
@@ -18,4 +19,10 @@
     <color name="color_half_translucent">#7f000000</color>
 
     <color name="color_light_black">#5000</color>
+
+    <!--日期 -->
+    <color name="date_text1">#59B29C</color>
+    <color name="date_text2">#333333</color>
+    <color name="textcolor">#515151</color>
+    <color name="light_l_blue">#4863F8</color>
 </resources>

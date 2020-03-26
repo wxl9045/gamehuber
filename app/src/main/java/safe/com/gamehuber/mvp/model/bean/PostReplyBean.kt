@@ -30,12 +30,13 @@ data class PostReplyBean(
         val viewCount: Any
 ) : AbstractExpandableItem<PostReply2Bean>(), MultiItemEntity {
     override fun getLevel(): Int {
-        return level
+        return 0
     }
 
     override fun getItemType(): Int {
-        return itemType
+        return 0
     }
+
 
     data class PostImg(
             val originPath: String,

@@ -8,6 +8,7 @@
     <string name="confirm_password">Confirm password</string>
     <string name="sign_in">Sign in</string>
     <string name="sign_up">Sign up</string>
+    <string name="sign_out">SIGN OUT</string>
     <string name="forget_password">Forget password?</string>
     <string name="create_account">Create Account?</string>
     <string name="reset_password">Reset password</string>
@@ -31,5 +32,12 @@
     <string name="hot_games">Hot Games</string>
     <string name="loading_text">loading...</string>
 
-
+    <string name="date_cancle">取消</string>
+    <string name="date_title">请选择时间</string>
+    <string name="date_commit">确定</string>
+    <string name="date_year">年</string>
+    <string name="date_month">月</string>
+    <string name="date_day">日</string>
+    <string name="date_hour">时</string>
+    <string name="date_minute">分</string>
 </resources>

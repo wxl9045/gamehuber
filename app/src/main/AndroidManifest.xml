@@ -30,7 +30,10 @@
         <activity android:name="safe.com.gamehuber.mvp.page.SelectGameActivity"/>
         <activity android:name="safe.com.gamehuber.mvp.page.PostTypeActivity"/>
         <activity android:name="safe.com.gamehuber.mvp.page.GameDetailActivity"/>
-        <activity android:name="safe.com.gamehuber.mvp.page.PostDetailActivity"/>
+        <activity android:name="safe.com.gamehuber.mvp.page.PostDetailActivity"
+            android:windowSoftInputMode="adjustPan|stateHidden"
+            ></activity>
+        <activity android:name="safe.com.gamehuber.mvp.page.SettingActivity"/>
     </application>
 
 </manifest>

@@ -5,10 +5,7 @@ import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Path
-import safe.com.gamehuber.mvp.model.bean.BaseBean
-import safe.com.gamehuber.mvp.model.bean.BaseRecordsBean
-import safe.com.gamehuber.mvp.model.bean.PostTypeBean
-import safe.com.gamehuber.mvp.model.bean.SelectGameBean
+import safe.com.gamehuber.mvp.model.bean.*
 import safe.com.gamehuber.net.mRetrofit
 
 interface PostApi {
@@ -36,7 +33,13 @@ interface PostApi {
      * 搜索帖子 帖子列表页
      */
     @POST("/v1/Post/searchPost")
-    suspend fun searchPost(@Body body: RequestBody): BaseBean<Any>
+    suspend fun searchPost(@Body body: RequestBody): BaseBean<BaseRecordsBean<List<PostReplyBean>>>
+
+    /**
+     * 帖子详情
+     */
+    @GET("/v1/Post/detail/{id}")
+    suspend fun postDetail(@Path("id") id: String): BaseBean<PostDetailBean>
 }
 
 object PostService : PostApi by mRetrofit.create(PostApi::class.java)

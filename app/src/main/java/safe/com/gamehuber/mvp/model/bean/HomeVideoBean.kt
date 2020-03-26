@@ -14,15 +14,16 @@ import java.io.Serializable
 //    "ratePersons":"打分人数"
 //}
 data class HomeVideoBean(
-    val avatar: String,
-    val comment: Int,
-    val like: Int,
-    val nickname: String,
-    val postContent: String,
-    val postTitle: String,
-    val postingTime: String,
-    val userId: String,
-    val videoCover: String,
-    val videoUrl: String,
-    val zan: Int
-):Serializable
+        val id: String,
+        val avatar: String,
+        val comment: Int,
+        val like: Int,
+        val nickname: String,
+        val postContent: String,
+        val postTitle: String,
+        val postingTime: String,
+        val userId: String,
+        val videoCover: String,
+        val videoUrl: String,
+        val zan: Int
+) : Serializable

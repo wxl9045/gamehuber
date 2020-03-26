@@ -61,8 +61,8 @@
             android:id="@+id/item_im_like"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:src="@mipmap/icon_heart"
             />
         <TextView

@@ -11,7 +11,7 @@
     <android.support.design.widget.CoordinatorLayout
         android:id="@+id/coordinatorLayout"
         android:layout_width="match_parent"
-        android:layout_height="1000dp">
+        android:layout_height="wrap_content">
 
         <android.support.design.widget.AppBarLayout
             android:id="@+id/app_bar"
@@ -37,11 +37,11 @@
                     “parallax”：视差模式，在折叠的时候会有个视差折叠的效果。我们可以在布局中使用属性app:layout_collapseMode=”parallax”来改变。
                     -->
                 <ImageView
-                    android:src="@mipmap/bg_one"
                     android:id="@+id/imageView"
                     android:layout_width="match_parent"
                     android:layout_height="350dp"
                     android:scaleType="fitXY"
+                    android:src="@mipmap/bg_one"
                     app:layout_collapseMode="parallax"
                     app:layout_collapseParallaxMultiplier="0.8"
                     app:layout_scrollFlags="scroll|snap|enterAlways|enterAlwaysCollapsed" />
@@ -56,6 +56,7 @@
                     app:layout_collapseMode="pin">
 
                     <ImageView
+                        android:id="@+id/btBack"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:layout_gravity="right"
@@ -68,14 +69,14 @@
 
         <!-- 第三部分:Your Scroll View-->
         <android.support.v4.widget.NestedScrollView
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
             android:id="@+id/myMainScrollView"
             android:layout_width="match_parent"
-            android:fillViewport="true"
             android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
             android:layout_marginTop="-100dp"
+            android:layout_marginRight="20dp"
             android:background="@color/color_translucent"
+            android:fillViewport="true"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
             <!--- app:layout_behavior="@string/appbar_scrolling_view_behavior"-->
             <LinearLayout
@@ -85,134 +86,151 @@
 
 
                 <android.support.v7.widget.CardView
-                    android:layout_marginBottom="10dp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_marginTop="5dp"
+                    android:layout_marginBottom="10dp"
                     android:paddingBottom="10dp"
                     app:cardBackgroundColor="@color/white"
                     app:cardCornerRadius="25dp"
                     app:cardElevation="1dp">
+
                     <android.support.constraint.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
+
                         <ImageView
                             android:id="@+id/imAvatar"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginRight="10dp"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintRight_toRightOf="parent"
                             android:layout_width="50dp"
                             android:layout_height="50dp"
-                            android:src="@mipmap/icon_rich_pic"
-                            />
-                        <TextView
-                            android:layout_marginTop="5dp"
-                            android:layout_marginRight="5dp"
-                            app:layout_constraintTop_toTopOf="@+id/imAvatar"
-                            app:layout_constraintRight_toLeftOf="@+id/imAvatar"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/tvName"
-                            android:text="gameHuber"
-                            android:textSize="@dimen/txt_size_norl"
-                            android:textColor="@color/black"
-                            />
-                        <TextView
-                            android:layout_marginTop="5dp"
-                            app:layout_constraintTop_toBottomOf="@+id/tvName"
-                            app:layout_constraintRight_toRightOf="@+id/tvName"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/tvDate"
-                            android:text="2011-01-01"
-                            android:textSize="@dimen/txt_size_min"
-                            android:textColor="@color/gray"
-                            />
-                            <TextView
-                                android:id="@+id/tvTitle"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="ddd"
-                                android:textColor="@color/text_gray"
-                                android:textSize="@dimen/txt_size_title"
-                                app:layout_constraintTop_toBottomOf="@+id/imAvatar"
-                                app:layout_constraintRight_toRightOf="@+id/imAvatar"
-                                />
-                        <ImageView
-                            android:layout_marginRight="20dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:src="@mipmap/icon_rich_pic"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:layout_marginRight="10dp"
+                            android:id="@+id/tvName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="gameHuber"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/txt_size_norl"
+                            app:layout_constraintRight_toLeftOf="@+id/imAvatar"
+                            app:layout_constraintTop_toTopOf="@id/imAvatar"
+                            />
+
+                        <TextView
+                            android:id="@+id/tvDate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text="2011-01-01"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/txt_size_min"
+                            app:layout_constraintRight_toRightOf="@+id/tvName"
+                            app:layout_constraintTop_toBottomOf="@+id/tvName" />
+
+                        <TextView
+                            android:layout_marginTop="10dp"
+                            android:id="@+id/tvTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textColor="@color/text_gray"
+                            android:textSize="@dimen/txt_size_max"
+                            app:layout_constraintRight_toRightOf="@+id/imAvatar"
+                            app:layout_constraintTop_toBottomOf="@+id/imAvatar" />
+
+                        <RelativeLayout
+                            android:id="@+id/rlCenter"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            app:layout_constraintBottom_toTopOf="@+id/imAgree"
+                            app:layout_constraintTop_toBottomOf="@+id/tvTitle">
+
+                            <com.sendtion.xrichtext.RichTextView
+                                android:id="@+id/richText"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/text_gray"
+                                android:textSize="@dimen/txt_size_norl"
+                                android:visibility="gone" />
+
+                            <com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer
+                                android:id="@+id/mVideoView"
+                                android:layout_width="match_parent"
+                                android:layout_height="180dp"
+                                android:background="@color/black" />
+                        </RelativeLayout>
+
+                        <ImageView
                             android:id="@+id/imAgree"
                             android:layout_width="20dp"
                             android:layout_height="20dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="20dp"
                             android:src="@mipmap/icon_heart"
-                            app:layout_constraintTop_toBottomOf="@+id/tvTitle"
                             app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintLeft_toLeftOf="@+id/tvTitle"
-                            />
+                            app:layout_constraintTop_toBottomOf="@+id/rlCenter" />
+
                         <TextView
                             android:id="@+id/tvAgree"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="@dimen/txt_size_min"
-                            android:textColor="@color/text_gray"
-                            app:layout_constraintRight_toLeftOf="@+id/imAgree"
-                            app:layout_constraintTop_toTopOf="@+id/imAgree"
-                            app:layout_constraintBottom_toBottomOf="@+id/imAgree"
                             android:layout_marginRight="5dp"
                             android:text="0"
-                            />
+                            android:textColor="@color/text_gray"
+                            android:textSize="@dimen/txt_size_min"
+                            app:layout_constraintBottom_toBottomOf="@+id/imAgree"
+                            app:layout_constraintRight_toLeftOf="@+id/imAgree"
+                            app:layout_constraintTop_toTopOf="@+id/imAgree" />
+
                         <ImageView
-                            android:layout_marginRight="10dp"
                             android:id="@+id/imReply"
                             android:layout_width="20dp"
                             android:layout_height="20dp"
+                            android:layout_marginRight="10dp"
                             android:src="@mipmap/icon_heart"
-                            app:layout_constraintTop_toTopOf="@+id/imAgree"
                             app:layout_constraintRight_toLeftOf="@+id/tvAgree"
-                            />
+                            app:layout_constraintTop_toTopOf="@+id/imAgree" />
+
                         <TextView
                             android:id="@+id/tvReply"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="@dimen/txt_size_min"
-                            android:textColor="@color/text_gray"
-                            app:layout_constraintRight_toLeftOf="@+id/imReply"
-                            app:layout_constraintTop_toTopOf="@+id/imReply"
-                            app:layout_constraintBottom_toBottomOf="@+id/imReply"
                             android:layout_marginRight="5dp"
                             android:text="0"
-                            />
+                            android:textColor="@color/text_gray"
+                            android:textSize="@dimen/txt_size_min"
+                            app:layout_constraintBottom_toBottomOf="@+id/imReply"
+                            app:layout_constraintRight_toLeftOf="@+id/imReply"
+                            app:layout_constraintTop_toTopOf="@+id/imReply" />
+
                         <ImageView
-                            android:layout_marginLeft="20dp"
-                            android:layout_marginRight="10dp"
                             android:id="@+id/imLike"
                             android:layout_width="20dp"
                             android:layout_height="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="10dp"
                             android:src="@mipmap/icon_heart"
-                            app:layout_constraintTop_toTopOf="@+id/imAgree"
                             app:layout_constraintLeft_toLeftOf="parent"
-                            />
-                        <com.sendtion.xrichtext.RichTextView
-                            android:padding="10dp"
-                            android:layout_marginTop="10dp"
-                            android:id="@+id/richText"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            app:layout_constraintTop_toBottomOf="@+id/imAgree"
-                            android:textSize="@dimen/txt_size_norl"
-                            android:textColor="@color/text_gray"/>
+                            app:layout_constraintTop_toTopOf="@+id/imAgree" />
+
                         <com.scwang.smartrefresh.layout.SmartRefreshLayout
-                            android:layout_marginTop="15dp"
                             android:id="@+id/mRefreshLayout"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
-                            app:layout_constraintTop_toBottomOf="@id/richText"
+                            android:layout_marginTop="15dp"
                             app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/imAgree"
                             app:srlAccentColor="@color/f2"
                             app:srlEnableHeaderTranslationContent="false"
                             app:srlEnableLoadmore="true"
                             app:srlPrimaryColor="@color/colorPrimary">
+
                             <com.scwang.smartrefresh.header.MaterialHeader
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content" />
@@ -222,11 +240,8 @@
                                 android:id="@+id/mRecyclerView"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:layout_marginRight="@dimen/margin_right_home"
-                                android:layout_marginLeft="@dimen/margin_right_home"
                                 android:clipToPadding="false"
-                                android:paddingBottom="@dimen/padding_tab_layout_bottom"
-                                >
+                                android:paddingBottom="@dimen/padding_tab_layout_bottom">
 
                             </android.support.v7.widget.RecyclerView>
 
@@ -239,6 +254,74 @@
                 </android.support.v7.widget.CardView>
             </LinearLayout>
         </android.support.v4.widget.NestedScrollView>
+
     </android.support.design.widget.CoordinatorLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/rlImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/mPicture"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+            </ImageView>
+
+            <ImageView
+                android:id="@+id/imClose"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@mipmap/close" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/btSend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/login_small_btn_bg"
+                android:padding="5dp"
+                android:text="发送"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_16" />
+
+            <ImageView
+                android:id="@+id/imPic"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginRight="5dp"
+                android:src="@mipmap/icon_rich_pic" />
+
+            <EditText
+                android:id="@+id/edText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="3dp"
+                android:background="@color/f2"
+                android:gravity="right"
+                android:hint="回复楼主"
+                android:padding="8dp"
+                android:textSize="@dimen/txt_size_min" />
+        </LinearLayout>
+
+    </LinearLayout>
 </FrameLayout>

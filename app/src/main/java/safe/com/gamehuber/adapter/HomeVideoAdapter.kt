@@ -10,6 +10,7 @@ import safe.com.gamehuber.R
 import safe.com.gamehuber.common.ui.SDCardInfoView
 import safe.com.gamehuber.common.utils.anim2Act
 import safe.com.gamehuber.mvp.model.bean.HomeVideoBean
+import safe.com.gamehuber.mvp.page.PostDetailActivity
 import safe.com.gamehuber.mvp.page.UserDetailActivity
 import safe.com.gamehuber.mvp.page.VideoDetailActivity
 
@@ -49,8 +50,9 @@ class HomeVideoAdapter(beans: List<HomeVideoBean>) :
      * @param view
      */
     private fun goToVideoPlayer(activity: Activity, view: View, itemData: HomeVideoBean) {
-        val intent = Intent(activity, VideoDetailActivity::class.java)
+        val intent = Intent(activity, PostDetailActivity::class.java)
         intent.putExtra(Constants.BUNDLE_VIDEO_DATA, itemData)
+        intent.putExtra("postId", itemData.id)
         intent.putExtra(VideoDetailActivity.TRANSITION, true)
         anim2Act(activity, view, intent)
     }

@@ -28,6 +28,15 @@ class SDSimpleTitleView @JvmOverloads constructor(context: Context, attrs: Attri
     }
 
     /**
+     * 设置右边图片
+     */
+    fun setLeftText(text: String) : SDSimpleTitleView{
+        view_title_txt_left.visibility = View.VISIBLE
+        view_title_txt_left.text = text
+        return this
+    }
+
+    /**
      * 设置右边文字
      * 此文字位置与右边图片位置一样 文字与图片不能同时设置
      */

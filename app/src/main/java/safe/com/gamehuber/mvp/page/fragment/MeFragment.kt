@@ -1,16 +1,20 @@
 package safe.com.gamehuber.mvp.page.fragment
 
+import android.view.View
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestOptions
 import kotlinx.android.synthetic.main.fragment_me.*
+import org.jetbrains.anko.startActivity
 import safe.com.gamehuber.R
 import safe.com.gamehuber.mvp.base.impl.BaseMvpFragment
 import safe.com.gamehuber.mvp.home.MePresenter
+import safe.com.gamehuber.mvp.page.SettingActivity
 
 
 class MeFragment : BaseMvpFragment<MePresenter>(){
     override fun getLayoutId(): Int = R.layout.fragment_me
+
 
     override fun initView() {
         Glide.with(this)
@@ -21,9 +25,15 @@ class MeFragment : BaseMvpFragment<MePresenter>(){
                 .apply(RequestOptions().placeholder(R.mipmap.default_avatar).circleCrop())
                 .transition(DrawableTransitionOptions().crossFade())
                 .into(iv_avatar)
-
+        setMyClickListener(llSetting)
         //状态栏透明和间距处理
 //        activity?.let { StatusBarUtil.darkMode(it) }
 //        activity?.let { StatusBarUtil.setPaddingSmart(it, toolbar) }
+    }
+
+    override fun onMyClick(v: View?) {
+        when(v?.id){
+            R.id.llSetting -> context?.startActivity<SettingActivity>()
+        }
     }
 }

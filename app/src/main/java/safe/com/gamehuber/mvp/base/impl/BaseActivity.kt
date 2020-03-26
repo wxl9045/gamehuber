@@ -10,12 +10,10 @@ import android.view.View
 import android.view.Window
 import com.gyf.immersionbar.ktx.immersionBar
 import com.gyf.immersionbar.ktx.setFitsSystemWindows
-import com.jakewharton.rxbinding2.view.RxView
 import safe.com.gamehuber.R
 import safe.com.gamehuber.common.ext.otherwise
 import safe.com.gamehuber.common.ext.yes
 import safe.com.gamehuber.common.ui.DialogUtils
-import java.util.concurrent.TimeUnit
 
 
 abstract class BaseActivity : AppCompatActivity(),View.OnClickListener {
@@ -90,11 +88,11 @@ abstract class BaseActivity : AppCompatActivity(),View.OnClickListener {
      * 防止按钮重复点击
      */
     override fun onClick(v: View?) {
-        v?.let {
-            RxView.clicks(it).throttleFirst(1, TimeUnit.SECONDS).subscribe{
+//        v?.let {
+//            RxView.clicks(it).throttleFirst(1, TimeUnit.SECONDS).subscribe{
                 onMyClick(v)
-            }
-        }
+//            }
+//        }
     }
 
    override fun onDestroy() {

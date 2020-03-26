@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <safe.com.gamehuber.common.ui.SDSimpleTitleView
+        android:id="@+id/sdTitle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_height"
+        android:elevation="10dip">
+
+    </safe.com.gamehuber.common.ui.SDSimpleTitleView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/white"
+        android:elevation="10dip"
+        app:layout_constraintTop_toBottomOf="@+id/sdTitle" />
+    <android.support.v4.widget.NestedScrollView
+        app:layout_constraintTop_toBottomOf="@+id/sdTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tvProfile"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/common_edit_height"
+                android:layout_margin="10dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="PROFILE"
+                android:textColor="@color/text_gray"
+                android:textSize="@dimen/txt_size_norl"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvNickName"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/common_edit_height"
+                android:gravity="center"
+                android:text="Nick name"
+                android:textColor="@color/black"
+                android:textSize="@dimen/txt_size_norl"
+                app:layout_constraintRight_toRightOf="@+id/tvProfile"
+                app:layout_constraintTop_toBottomOf="@+id/tvProfile" />
+
+            <TextView
+                android:id="@+id/tvBrief"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/common_edit_height"
+                android:gravity="center"
+                android:text="Brief introduction"
+                android:textColor="@color/black"
+                android:textSize="@dimen/txt_size_norl"
+                app:layout_constraintRight_toRightOf="@+id/tvProfile"
+                app:layout_constraintTop_toBottomOf="@+id/tvNickName" />
+
+            <TextView
+                android:id="@+id/line1"
+                style="@style/line_f2"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvBrief" />
+
+            <TextView
+                android:id="@+id/tvDetails"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/common_edit_height"
+                android:gravity="center"
+                android:text="DETAILS"
+                android:textColor="@color/text_gray"
+                android:textSize="@dimen/txt_size_norl"
+                app:layout_constraintRight_toRightOf="@+id/tvProfile"
+                app:layout_constraintTop_toBottomOf="@+id/line1" />
+
+            <TextView
+                android:id="@+id/tvGender"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/common_edit_height"
+                android:gravity="center"
+                android:text="Gender"
+                android:textColor="@color/black"
+                android:textSize="@dimen/txt_size_norl"
+                app:layout_constraintRight_toRightOf="@+id/tvProfile"
+                app:layout_constraintTop_toBottomOf="@+id/tvDetails" />
+
+            <TextView
+                android:id="@+id/tvBirthday"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/common_edit_height"
+                android:gravity="center"
+                android:text="Birthday"
+                android:textColor="@color/black"
+                android:textSize="@dimen/txt_size_norl"
+                app:layout_constraintRight_toRightOf="@+id/tvProfile"
+                app:layout_constraintTop_toBottomOf="@+id/tvGender" />
+
+            <TextView
+                android:id="@+id/tvCountry"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/common_edit_height"
+                android:gravity="center"
+                android:text="Country"
+                android:textColor="@color/black"
+                android:textSize="@dimen/txt_size_norl"
+                app:layout_constraintRight_toRightOf="@+id/tvProfile"
+                app:layout_constraintTop_toBottomOf="@+id/tvBirthday" />
+
+            <TextView
+                android:id="@+id/line2"
+                style="@style/line_f2"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvCountry" />
+
+            <TextView
+                android:id="@+id/tvAccount"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/common_edit_height"
+                android:gravity="center"
+                android:text="Account"
+                android:textColor="@color/text_gray"
+                android:textSize="@dimen/txt_size_norl"
+                app:layout_constraintRight_toRightOf="@+id/tvProfile"
+                app:layout_constraintTop_toBottomOf="@+id/line2" />
+            <TextView
+                android:id="@+id/tvEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/common_edit_height"
+                android:gravity="center"
+                android:text="Email"
+                android:textColor="@color/black"
+                android:textSize="@dimen/txt_size_norl"
+                app:layout_constraintRight_toRightOf="@+id/tvProfile"
+                app:layout_constraintTop_toBottomOf="@+id/tvAccount" />
+
+            <TextView
+                android:id="@+id/tvFaceBook"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/common_edit_height"
+                android:gravity="center"
+                android:text="FaceBook"
+                android:textColor="@color/black"
+                android:textSize="@dimen/txt_size_norl"
+                app:layout_constraintRight_toRightOf="@+id/tvProfile"
+                app:layout_constraintTop_toBottomOf="@+id/tvEmail" />
+
+            <TextView
+                android:id="@+id/tvChange"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/common_edit_height"
+                android:gravity="center"
+                android:text="Change password"
+                android:textColor="@color/black"
+                android:textSize="@dimen/txt_size_norl"
+                app:layout_constraintRight_toRightOf="@+id/tvProfile"
+                app:layout_constraintTop_toBottomOf="@+id/tvFaceBook" />
+
+            <EditText
+                android:id="@+id/edNickName"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintRight_toLeftOf="@+id/tvNickName"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tvNickName"
+                app:layout_constraintBottom_toBottomOf="@+id/tvNickName"
+                android:textSize="@dimen/txt_size_norl"
+                android:background="@color/white"
+                android:hint="Nick name"
+                />
+
+            <EditText
+                android:layout_marginRight="10dp"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintRight_toLeftOf="@+id/tvBrief"
+                app:layout_constraintLeft_toLeftOf="@id/edNickName"
+                app:layout_constraintTop_toTopOf="@+id/tvBrief"
+                app:layout_constraintBottom_toBottomOf="@+id/tvBrief"
+                android:textSize="@dimen/txt_size_norl"
+                android:background="@color/white"
+                android:hint="Hello ~ Huber!"
+                />
+            <RadioGroup
+                android:layout_marginLeft="10dp"
+                app:layout_constraintTop_toTopOf="@+id/tvGender"
+                app:layout_constraintBottom_toBottomOf="@id/tvGender"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/tvGender"
+                android:layout_width="0dp"
+                android:orientation="horizontal"
+                android:gravity="left"
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:id="@+id/rbMan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="男"
+                    />
+                <RadioButton
+                    android:id="@+id/rbWoman"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="女"
+                    />
+            </RadioGroup>
+            <TextView
+                android:id="@+id/tvSelectDate"
+                android:layout_marginRight="10dp"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="center_vertical"
+                app:layout_constraintRight_toLeftOf="@+id/tvBirthday"
+                app:layout_constraintLeft_toLeftOf="@id/edNickName"
+                app:layout_constraintTop_toTopOf="@+id/tvBirthday"
+                app:layout_constraintBottom_toBottomOf="@+id/tvBirthday"
+                android:textSize="@dimen/txt_size_norl"
+                android:background="@color/white"
+                android:hint=""
+                />
+            <EditText
+                android:id="@+id/etCountry"
+                android:layout_marginRight="10dp"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintRight_toLeftOf="@+id/tvCountry"
+                app:layout_constraintLeft_toLeftOf="@id/edNickName"
+                app:layout_constraintTop_toTopOf="@+id/tvCountry"
+                app:layout_constraintBottom_toBottomOf="@+id/tvCountry"
+                android:textSize="@dimen/txt_size_norl"
+                android:background="@color/white"
+                android:hint=""
+                />
+            <TextView
+                android:id="@+id/tvShowEmail"
+                android:layout_marginRight="10dp"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="center_vertical"
+                app:layout_constraintRight_toLeftOf="@+id/tvEmail"
+                app:layout_constraintLeft_toLeftOf="@id/edNickName"
+                app:layout_constraintTop_toTopOf="@+id/tvEmail"
+                app:layout_constraintBottom_toBottomOf="@+id/tvEmail"
+                android:textSize="@dimen/txt_size_norl"
+                android:background="@color/white"
+                android:hint=""
+                />
+        </android.support.constraint.ConstraintLayout>
+    </android.support.v4.widget.NestedScrollView>
+    <TextView
+        android:id="@+id/line3"
+        style="@style/line_f2"
+        android:layout_marginTop="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/tvSignOut" />
+    <TextView
+        android:background="@color/white"
+        android:id="@+id/tvSignOut"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/common_edit_height"
+        android:gravity="center"
+        android:text="@string/sign_out"
+        android:textColor="@color/colorAccent"
+        android:textSize="@dimen/txt_size_norl"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+</android.support.constraint.ConstraintLayout>

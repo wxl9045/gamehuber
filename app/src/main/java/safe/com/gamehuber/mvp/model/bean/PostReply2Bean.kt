@@ -30,7 +30,7 @@ data class PostReply2Bean(
 ) :MultiItemEntity {
 
     override fun getItemType(): Int {
-        return itemType
+        return 1
     }
 
     data class PostImg(

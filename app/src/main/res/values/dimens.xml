@@ -17,4 +17,5 @@
     <dimen name="toolbar_height2">68dp</dimen>
     <dimen name="subscription_head">300dp</dimen>
 
+    <dimen name="common_edit_height">44dp</dimen>
 </resources>
