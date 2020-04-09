@@ -183,6 +183,7 @@
                 />
 
             <EditText
+                android:id="@+id/edDesc"
                 android:layout_marginRight="10dp"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -216,6 +217,12 @@
                     android:layout_height="wrap_content"
                     android:text="女"
                     />
+                <RadioButton
+                    android:id="@+id/rbSecret"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="保密"
+                    />
             </RadioGroup>
             <TextView
                 android:id="@+id/tvSelectDate"
@@ -232,7 +239,7 @@
                 android:hint=""
                 />
             <EditText
-                android:id="@+id/etCountry"
+                android:id="@+id/edCountry"
                 android:layout_marginRight="10dp"
                 android:layout_width="0dp"
                 android:layout_height="0dp"

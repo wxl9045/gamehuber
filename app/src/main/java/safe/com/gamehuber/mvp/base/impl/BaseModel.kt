@@ -22,9 +22,9 @@ open class BaseModel {
 
 
     suspend fun executeResponse2(response: HomeBean, successBlock: (suspend CoroutineScope.() -> Unit)? = null,
-                                          errorBlock: (suspend CoroutineScope.() -> Unit)? = null): MyResult<HomeBean> {
+                                 errorBlock: (suspend CoroutineScope.() -> Unit)? = null): MyResult<HomeBean> {
         return coroutineScope {
-            if (response.issueList!=null && response.issueList.size >0 ) {
+            if (response.issueList != null && response.issueList.size > 0) {
                 successBlock?.let { it() }
                 MyResult.Success(response)
             } else {

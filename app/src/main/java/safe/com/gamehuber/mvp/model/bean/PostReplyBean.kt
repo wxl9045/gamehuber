@@ -5,7 +5,7 @@ import com.chad.library.adapter.base.entity.MultiItemEntity
 
 data class PostReplyBean(
         val avatar: String,
-        val children: List<PostReplyBean>,
+        val children: List<PostReply2Bean>,
         val id: String,
         val indexCount: Int,
         val isEssence: Int,
@@ -14,9 +14,9 @@ data class PostReplyBean(
         val isSticky: Int,
         val isThumbsUp: Any,
         val likeCount: Int,
-        val nickname: String,
+        var nickname: String,
         val postContent: String,
-        val postContentPlaintext: String,
+        var postContentPlaintext: String,
         val postImgList: List<PostImg>,
         val postTitle: String,
         val postingTime: String,
@@ -27,7 +27,8 @@ data class PostReplyBean(
         val userLv: Int,
         val videoCover: String,
         val videoUrl: String,
-        val viewCount: Any
+        val viewCount: Any,
+        var hasNext: Boolean
 ) : AbstractExpandableItem<PostReply2Bean>(), MultiItemEntity {
     override fun getLevel(): Int {
         return 0
@@ -37,7 +38,7 @@ data class PostReplyBean(
         return 0
     }
 
-
+    
     data class PostImg(
             val originPath: String,
             val thumbPath: Any

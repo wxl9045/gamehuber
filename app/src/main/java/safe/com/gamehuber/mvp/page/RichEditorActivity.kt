@@ -152,7 +152,7 @@ class RichEditorActivity : TakePhotoActivity<RichEditorPresenter>() {
         }
     }
 
-    fun commitHtmlData() {
+    private fun commitHtmlData() {
         //提交数据
         val map = mapOf(
                 "topicId" to postTypeEventBean?.topicId,

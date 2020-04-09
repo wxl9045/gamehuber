@@ -25,6 +25,7 @@ class ConstantsCode private constructor() {
 
     companion object {
         const val REQUEST_CODE_MAIN = 200
+        const val REQUEST_CODE_LOGIN_SUCCESS = 201
         const val REQUEST_VIDEO_CODE = 1
     }
 }

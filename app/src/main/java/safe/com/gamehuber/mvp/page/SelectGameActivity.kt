@@ -67,9 +67,4 @@ class SelectGameActivity : BaseListActivity<SelectGamePresenter>() {
                 finish()
         }
     }
-
-    override fun onDestroy() {
-        EventBus.getDefault().unregister(this)
-        super.onDestroy()
-    }
 }

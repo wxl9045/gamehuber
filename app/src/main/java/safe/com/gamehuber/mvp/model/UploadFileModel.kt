@@ -22,7 +22,7 @@ class UploadFileModel : BaseModel() {
         }, errorMessage = "网络异常")
     }
 
-    suspend fun uploadFile(fileUrl: String): MyResult<String> {
+    suspend fun uploadFileVideo(fileUrl: String): MyResult<String> {
         val part = filesToMultipartBodyPart(File(fileUrl), "")
         return apiCall(call = {
             executeResponse(FileService.uploadVideo(part))

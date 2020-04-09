@@ -6,6 +6,7 @@
     android:padding="10dp">
 
     <android.support.constraint.ConstraintLayout
+        android:id="@+id/main_constraint"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <ImageView
@@ -76,4 +77,16 @@
             android:text="0"
             />
     </android.support.constraint.ConstraintLayout>
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/item_post_more"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/main_constraint"
+        android:layout_width="0dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_height="wrap_content"
+        android:text="点击查看更多"
+        />
 </android.support.constraint.ConstraintLayout>

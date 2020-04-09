@@ -1,6 +1,8 @@
 package safe.com.gamehuber.mvp.page.fragment
 
 import android.content.Intent
+import android.provider.MediaStore
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import com.chad.library.adapter.base.BaseQuickAdapter
@@ -17,6 +19,7 @@ import safe.com.gamehuber.common.ext.yes
 import safe.com.gamehuber.mvp.base.impl.BaseMvpFragment
 import safe.com.gamehuber.mvp.model.bean.PostBean
 import safe.com.gamehuber.mvp.page.RichEditorActivity
+import safe.com.gamehuber.mvp.page.SendVideoActivity
 import safe.com.gamehuber.mvp.presenter.FollowPresenter
 
 
@@ -82,28 +85,11 @@ class FollowFragment : BaseMvpFragment<FollowPresenter>() {
             R.id.btVideo -> {
                 //视频贴
                 val intent = Intent(Intent.ACTION_PICK, android.provider.MediaStore.Video.Media.EXTERNAL_CONTENT_URI)
-                activity?.startActivityForResult(intent, REQUEST_VIDEO_CODE)
+                startActivityForResult(intent, REQUEST_VIDEO_CODE)
             }
             R.id.btPost ->  activity?.startActivity<RichEditorActivity>()//图文贴
         }
     }
-
-//    private fun selectInvitation() {
-//        val invitationDialog = InvitationDialog(activity)
-//        invitationDialog.show()
-//        invitationDialog.setClicklistener(object : InvitationDialog.ClickListenerInterface {
-//            override fun doImageText() {
-//                //图文贴
-//                activity?.startActivity<RichEditorActivity>()
-//            }
-//
-//            override fun doVideo() {
-//                //视频贴
-//                val intent = Intent(Intent.ACTION_PICK, android.provider.MediaStore.Video.Media.EXTERNAL_CONTENT_URI)
-//                activity?.startActivityForResult(intent, REQUEST_VIDEO_CODE)
-//            }
-//        })
-//    }
 
     fun missRefresh() {
         isRefresh.yes {
@@ -114,5 +100,20 @@ class FollowFragment : BaseMvpFragment<FollowPresenter>() {
         }
     }
 
-
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        (requestCode == REQUEST_VIDEO_CODE).yes {
+            (resultCode == AppCompatActivity.RESULT_OK).yes {
+                val uri = data?.data
+                val cr = activity?.contentResolver
+                val cursor = cr?.query(uri, null, null, null, null)
+                (cursor?.moveToFirst())?.yes {
+                    //视频路径
+                    val videoPath = cursor?.getColumnIndexOrThrow(MediaStore.Video.Media.DATA)?.let { cursor?.getString(it) }
+                    //缩略图路径
+                    val imagePath = cursor?.getColumnIndexOrThrow(MediaStore.Images.Media.DATA)?.let { cursor?.getString(it) }
+                    activity?.startActivity<SendVideoActivity>("videoPath" to videoPath, "imagePath" to imagePath)
+                }
+            }
+        }
+    }
 }

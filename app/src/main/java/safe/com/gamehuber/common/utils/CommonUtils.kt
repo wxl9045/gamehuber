@@ -13,6 +13,7 @@ import okhttp3.RequestBody
 import safe.com.gamehuber.R
 import safe.com.gamehuber.common.ext.yes
 import safe.com.gamehuber.mvp.page.VideoDetailActivity
+import java.text.SimpleDateFormat
 import java.util.*
 import java.util.regex.Pattern
 
@@ -71,9 +72,38 @@ fun isEmail(email : String) : Boolean {
  * @param mp
  * @return
  */
-fun getRequestBody(mp: Map<String, Any>): RequestBody {
+fun getRequestBody(mp: Map<String, Any?>): RequestBody {
     val gson = Gson()
     //        JSONObject jsonObject = new JSONObject(mp);
     val bodyContent = gson.toJson(mp)
     return RequestBody.create(MediaType.parse("application/json; charset=utf-8"), bodyContent)
+}
+
+/**
+ * 获取系统当前时间戳
+ *"yyyy-MM-dd HH:mm"
+ * @return
+ */
+fun dateGetTime(formatterStr : String): Long {
+    val formatter = SimpleDateFormat(formatterStr)
+    val curDate = Date(System.currentTimeMillis())
+    return curDate.time
+}
+
+/**
+ * 获取系统当前时间"yyyy-MM-dd HH:mm"
+ *
+ * @return
+ */
+fun getSystemDate(formatterStr : String): String {
+    val formatter = SimpleDateFormat(formatterStr)
+    val curDate = Date(System.currentTimeMillis())
+    return formatter.format(curDate)
+}
+
+
+//当前时间 改变x年
+fun changeXYear(x: Int): String {
+    val nowYear = Integer.parseInt(getSystemDate("yyyy-MM-dd HH:mm").substring(0, 4))
+    return (nowYear + x).toString() + "-" + "01-01 00:00"
 }

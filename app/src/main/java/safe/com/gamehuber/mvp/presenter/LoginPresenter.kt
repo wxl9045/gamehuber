@@ -15,9 +15,9 @@ import safe.com.gamehuber.mvp.model.LoginModel
 import safe.com.gamehuber.mvp.model.bean.LoginBean
 import safe.com.gamehuber.mvp.page.LoginActivity
 
-class LoginPresenter : BasePresenter<LoginActivity>(){
-    
-    fun doLogin(userEmail:String, pwd: String){
+class LoginPresenter : BasePresenter<LoginActivity>() {
+
+    fun doLogin(userEmail: String, pwd: String) {
         userEmail.isEmpty().yes {
             view.toast("请输入邮箱")
             return
@@ -33,12 +33,14 @@ class LoginPresenter : BasePresenter<LoginActivity>(){
         view.showDialog("登录中")
         GlobalScope.launch(Dispatchers.Main) {
             val result = LoginModel().login(userEmail, pwd)
-            if(result is MyResult.Success) {
+            if (result is MyResult.Success) {
                 view.toast("登录成功")
-                var loginBean : LoginBean by DelegatesSP.userInfoSP(view)
+                var loginBean: LoginBean by DelegatesSP.userInfoSP(view)
                 loginBean = result.data//保存 用户信息
                 view.start2Act()
-            }else {  view.toast(result.getString()) }
+            } else {
+                view.toast(result.getString())
+            }
             view.missDialog()
         }
     }

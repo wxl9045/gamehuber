@@ -1,15 +1,13 @@
 package safe.com.gamehuber.mvp.base.impl
 
 import android.app.Dialog
-import android.content.Intent
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
-import android.util.Log
 import android.view.View
 import android.view.Window
 import com.gyf.immersionbar.ktx.immersionBar
 import com.gyf.immersionbar.ktx.setFitsSystemWindows
+import org.greenrobot.eventbus.EventBus
 import safe.com.gamehuber.R
 import safe.com.gamehuber.common.ext.otherwise
 import safe.com.gamehuber.common.ext.yes
@@ -96,6 +94,9 @@ abstract class BaseActivity : AppCompatActivity(),View.OnClickListener {
     }
 
    override fun onDestroy() {
+       if(EventBus.getDefault().isRegistered(this)){
+           EventBus.getDefault().unregister(this)
+       }
         super.onDestroy()
     }
 
@@ -104,42 +105,5 @@ abstract class BaseActivity : AppCompatActivity(),View.OnClickListener {
     }
     fun missDialog() {
         DialogUtils.closeDialog(dialog)
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        val fm = supportFragmentManager
-        var index = requestCode shr 16
-        if (index != 0) {
-            index--
-            if (fm.fragments == null || index < 0
-                    || index >= fm.fragments.size) {
-                Log.w("mainAct", "Activity result fragment index out of range: 0x" + Integer.toHexString(requestCode))
-                return
-            }
-            val frag = fm.fragments[index]
-            frag?.let { handleResult(it, requestCode, resultCode, data!!) }
-                    ?: Log.w("mainAct", "Activity result no fragment exists for index: 0x" + Integer.toHexString(requestCode))
-            return
-        }
-    }
-
-    /**
-     * 递归调用，对所有子Fragement生效
-     *
-     * @param frag
-     * @param requestCode
-     * @param resultCode
-     * @param data
-     */
-    private fun handleResult(frag: Fragment, requestCode: Int, resultCode: Int,
-                             data: Intent) {
-        frag.onActivityResult(requestCode and 0xffff, resultCode, data)
-        val frags = frag.childFragmentManager.fragments
-        if (frags != null) {
-            for (f in frags) {
-                if (f != null)
-                    handleResult(f, requestCode, resultCode, data)
-            }
-        }
     }
 }

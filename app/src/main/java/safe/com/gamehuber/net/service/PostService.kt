@@ -36,10 +36,23 @@ interface PostApi {
     suspend fun searchPost(@Body body: RequestBody): BaseBean<BaseRecordsBean<List<PostReplyBean>>>
 
     /**
+     * 搜索更多帖子 帖子列表子 列表
+     */
+    @POST("/v1/Post/searchPost")
+    suspend fun searchMorePost(@Body body: RequestBody): BaseBean<BaseRecordsBean<List<PostReply2Bean>>>
+
+    /**
      * 帖子详情
      */
     @GET("/v1/Post/detail/{id}")
     suspend fun postDetail(@Path("id") id: String): BaseBean<PostDetailBean>
+
+    /**
+     * 帖子回复
+     */
+    @POST("/v1/Post/reply")
+    suspend fun postReply(@Body body: RequestBody): BaseBean<PostReplyBean>
+
 }
 
 object PostService : PostApi by mRetrofit.create(PostApi::class.java)

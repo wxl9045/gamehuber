@@ -2,7 +2,10 @@ package safe.com.gamehuber.mvp.page
 
 import android.view.View
 import kotlinx.android.synthetic.main.activity_login.*
+import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.Subscribe
 import org.jetbrains.anko.startActivity
+import safe.com.gamehuber.ConstantsCode.Companion.REQUEST_CODE_LOGIN_SUCCESS
 import safe.com.gamehuber.ConstantsCode.Companion.REQUEST_CODE_MAIN
 import safe.com.gamehuber.MainActivity
 import safe.com.gamehuber.R
@@ -15,12 +18,8 @@ class LoginActivity : BaseMvpActivity<LoginPresenter>() {
     override fun getLayoutId(): Int = R.layout.activity_login
     private var code = 0
     override fun initView() {
-        var intent = this.intent
-        code = intent.getIntExtra("code", 0)
-        (code == REQUEST_CODE_MAIN).yes {
-            close.visibility = View.VISIBLE
-        }
-        setMyClickListener(btLogin, forgetPassword, createAccount,close)
+        EventBus.getDefault().register(this)
+        setMyClickListener(btLogin, forgetPassword, createAccount, close)
     }
 
     override fun onMyClick(v: View?) {
@@ -34,8 +33,17 @@ class LoginActivity : BaseMvpActivity<LoginPresenter>() {
 
     fun start2Act() {
         (code == REQUEST_CODE_MAIN).yes {
-            setResult(REQUEST_CODE_MAIN)
+            EventBus.getDefault().post(REQUEST_CODE_LOGIN_SUCCESS)
         }.otherwise { startActivity<MainActivity>() }
-            finish()
+        finish()
     }
+
+    @Subscribe
+    fun getEventCode(code: Int) {
+        //当用户未登陆时 其他页面点击跳转到登录页
+        this.code = code
+        close.visibility = View.VISIBLE
+    }
+
+
 }

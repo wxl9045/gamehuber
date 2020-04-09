@@ -14,9 +14,7 @@ import com.orhanobut.logger.Logger
 import kotlinx.android.synthetic.main.activity_user_detail.*
 import kotlinx.android.synthetic.main.fragment_me.app_bar
 import kotlinx.android.synthetic.main.fragment_me.imageView
-import kotlinx.android.synthetic.main.fragment_me.iv_avatar
 import safe.com.gamehuber.R
-import safe.com.gamehuber.R.id.*
 import safe.com.gamehuber.mvp.base.impl.BaseFragmentAdapter
 import safe.com.gamehuber.mvp.base.impl.BaseMvpActivity
 import safe.com.gamehuber.mvp.page.fragment.FollowFragment

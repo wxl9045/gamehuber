@@ -75,7 +75,7 @@ class SDCardInfoView @JvmOverloads constructor(context: Context, attrs: Attribut
         user_name.text = nickName
         Glide.with(context)
                 .load(UrlConstant.BASE_URL_FILE + coverImgUrl)
-                .apply(RequestOptions().placeholder(R.mipmap.placeholder_banner))
+                .apply(RequestOptions().placeholder(R.mipmap.placeholder_banner).centerCrop())
                 .transition(DrawableTransitionOptions().crossFade())
                 .into(imageView)
         tv_describe.text = desc

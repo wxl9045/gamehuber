@@ -19,10 +19,11 @@ import safe.com.gamehuber.mvp.presenter.SendVideoPresenter
 
 
 class SendVideoActivity : BaseMvpActivity<SendVideoPresenter>() {
-    private var imagePath: String? = null
-    private var videoPath: String? = null
+    private var imagePath: String? = null//视频本地封面图
+    private var videoPath: String? = null//视频本地路径
     private var gameId: String? = null
-    var name: String? = null
+    private var name: String? = null
+    private var videoUrl: String? = null//获取上传的视频路径
     private var postTypeEventBean: PostTypeEventBean? = null
     override fun getLayoutId(): Int = R.layout.activity_send_video
 
@@ -35,7 +36,7 @@ class SendVideoActivity : BaseMvpActivity<SendVideoPresenter>() {
         gameId.isNullOrEmpty().no {
             tvTitle.text = name
         }
-        setMyClickListener(close, tvTitle,btCommit)
+        setMyClickListener(close, tvTitle, btCommit)
         loadVideoImage()
     }
 
@@ -76,6 +77,8 @@ class SendVideoActivity : BaseMvpActivity<SendVideoPresenter>() {
             toast("请输入内容")
             return
         }
+        //上传视频图片
+        imagePath
         //上传视频
         videoPath?.let { presenter.uploadVideo(it) }
     }
@@ -94,9 +97,16 @@ class SendVideoActivity : BaseMvpActivity<SendVideoPresenter>() {
     }
 
     /**
-     * 上传视频成功后  提交数据
+     * 上传视频成功后  上传视频图片
      */
     fun uploadVideoOk(videoUrl: String) {
+        this.videoUrl = videoUrl
+        var files = ArrayList<String>()
+        imagePath?.let { files.add(it) }
+        presenter.uploadFiles(files)
+    }
+
+    fun uploadFileOk(files: List<String>) {
         val map = mapOf(
                 "topicId" to postTypeEventBean?.topicId,
                 "title" to postTypeEventBean?.topicName,
@@ -104,7 +114,8 @@ class SendVideoActivity : BaseMvpActivity<SendVideoPresenter>() {
                 "type" to 3,
                 "htmlContent" to edContent.text.toString(),
                 "planTextContent" to edContent.text.toString(),
-                "videoUrl" to videoUrl)
+                "videoPreviewUrl" to files[0],
+                "videoUrl" to this.videoUrl)
         presenter.addPost(map as Map<String, Any>)
     }
 }

@@ -16,13 +16,24 @@ class SendVideoPresenter : BasePresenter<SendVideoActivity>() {
     fun uploadVideo(url: String) {
         view.showDialog("提交中")
         GlobalScope.launch(Dispatchers.Main) {
-            val result = UploadFileModel().uploadFile(url)
+            val result = UploadFileModel().uploadFileVideo(url)
             if (result is MyResult.Success) {
                 view.uploadVideoOk(result.data)
             } else {
                 view.toast(result.getString())
             }
             view.missDialog()
+        }
+    }
+
+    fun uploadFiles(files: List<String>) {
+        GlobalScope.launch(Dispatchers.Main) {
+            val result = UploadFileModel().uploadFiles(files)
+            if (result is MyResult.Success) {
+                view.uploadFileOk(result.data)
+            } else {
+                view.toast(result.getString())
+            }
         }
     }
 

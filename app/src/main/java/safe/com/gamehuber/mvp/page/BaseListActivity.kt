@@ -7,6 +7,9 @@ import safe.com.gamehuber.common.ext.yes
 import safe.com.gamehuber.mvp.base.impl.BaseMvpActivity
 import safe.com.gamehuber.mvp.base.impl.BasePresenter
 
+/**
+ * 继承该类实现下拉刷新 下拉加载功能
+ */
 abstract class BaseListActivity<out P : BasePresenter<BaseMvpActivity<P>>> : BaseMvpActivity<P>() {
     var isRefresh = false
     var isLoadmore = false
